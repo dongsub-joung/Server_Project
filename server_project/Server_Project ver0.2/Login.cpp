@@ -1,11 +1,12 @@
 #include "Default_Include.h"
-#include "Login.h"
+#include "UserInfo, Data.h"
 
 class Login
 {
 public:
 	Login();
 	~Login();
+
 	bool login_success{ false };
 
 	void init();

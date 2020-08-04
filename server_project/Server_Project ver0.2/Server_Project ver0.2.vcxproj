@@ -139,11 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Join.cpp" />
     <ClCompile Include="Login.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Default_Include.h" />
-    <ClInclude Include="Login.h" />
+    <ClInclude Include="UserInfo, Data.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
