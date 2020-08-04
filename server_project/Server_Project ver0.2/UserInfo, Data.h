@@ -26,6 +26,5 @@ struct PreUserInfo
 struct UserData
 {
 	map<string, string> m_account_IDPW;			//ID+PW
-	vector<string> m_numbers_pass;	//ÁÖ¹Î ¹øÈ£+ pass 
-
+	map<string, string> m_account_IDpass;			//ID+pass
 };

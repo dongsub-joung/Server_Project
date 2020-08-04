@@ -10,6 +10,8 @@ public:
 	void init();
 
 private:
+	UserData user_data;
+
 	string id;
 	string password;
 	string user_id_number;
@@ -67,7 +69,6 @@ void Join::CheckPassword(string password)
 }
 void Join::AddUserData(string id, string password)
 {
-
 	
 }
 
