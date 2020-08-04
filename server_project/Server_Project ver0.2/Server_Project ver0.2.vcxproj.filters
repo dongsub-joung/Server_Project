@@ -21,6 +21,9 @@
     <ClCompile Include="Join.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="init.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Default_Include.h">
