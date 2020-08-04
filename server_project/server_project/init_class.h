@@ -276,9 +276,16 @@ public:
 };
 
 
+
+
 //유저를 표현하기 위한 기본 자료구조
 struct UserInfo
 {
+	struct login
+	{
+
+	};
+
 	//최대 10자
 	//최소 8자, 최대 12자
 	//주민번호, ""-""제외
@@ -287,15 +294,15 @@ struct UserInfo
 	string m_userID_number;
 
 	map<string, string> m_account_IDPW; //ID+PW
+
 	map<string, string> m_account_ID_number; //주민 번호 + ID
 
 	vector<string*> m_userID_array; //주민 번호 검색용 
-	vector<string> m_pre_join_user_list; //승인 이전 유저 들
-	vector<string> m_joined_user_list; //승인된 유저 목록
+	
+	bool m_admin_accpt{ false }; //판별용
 
-	//로그인 상태 확인
-	bool login_state = false;
 	string user; // 로그인한 유저 ID
+
 	int m_authority_level[3]{ 1,0,0 }; //유저에게 승인된 권한 레벨 Read, Write, both RW
 
 
@@ -307,7 +314,19 @@ struct UserInfo
 		return find(m_userID_array.begin(), m_userID_array.end(), search_ID);
 	}
 
+	void AccepteUser()
+	{
+		m_admin_accpt = { true };
+	}
 
+	void Logining(string id, string pw)
+	{
+		auto return_key = m_SearchID(id);
+		if (return_key == pw )
+		{
+
+		}
+	}
 
 };
 
@@ -319,13 +338,13 @@ public:
 	JoinMode();
 	~JoinMode();
 	
-	UserInfo user;
+	UserInfo user_info;
 
 	//주민번호를 배열에 저장
 	//저장하기 전에 기존 배열에서 입력된 값이 존재하는지 확인
 	void SaveID(string search_ID)
 	{
-		string &respone_value = user.m_SearchID(search_ID);
+		string &respone_value = user_info.m_SearchID(search_ID);
 		if (respone_value == search_ID)
 		{
 			std::cout << "이미 회원가입이된 주민등록번호입니다." << endl;
@@ -341,25 +360,21 @@ public:
 	//회원가입 유저의 정보를 배열에 추가
 	void SaveUserAccount(string ID, string PW)
 	{
-		user.m_account_IDPW.insert(make_pair(ID,PW));
+		user_info.m_account_IDPW.insert(make_pair(ID,PW));
 	}
+
 
 	//관리자 승인을 위한 유저정보 배열 만들기
 	void CopyUserAccount()
 	{
-		user.m_account_IDPW; //배열 복사
-		user.m_pre_join_user_list;//최근 데이터 인풋
+		user_info.m_account_IDPW;
 	}
 
 	void AcceptUsers()
 	{
-		user.m_joined_user_list; //저장
+		user_info;
 	}
 
-	void ShowAcceptUsers()
-	{
-		user.m_joined_user_list; //for 출력
-	}
 
 private:
 
@@ -370,5 +385,33 @@ JoinMode::JoinMode()
 }
 
 JoinMode::~JoinMode()
+{
+}
+
+class Login
+{
+public:
+	Login();
+	~Login();
+
+	void SaveUserData(string id, string pw)
+	{
+
+	}
+
+	void ActiveAccepteUser()
+	{
+		user_info.AccepteUser();
+	}
+
+private:
+
+};
+
+Login::Login()
+{
+}
+
+Login::~Login()
 {
 }

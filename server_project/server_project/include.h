@@ -8,4 +8,3 @@
 #include <algorithm>
 
 #include "init_class.h"
-#include "struct_Info.h"

@@ -2,9 +2,6 @@
 
 using namespace std;
 
-#include "include.h"
-#
-
 //*enum
 enum Main_Selection
 {
@@ -41,23 +38,28 @@ void main()
 	std::cout << "1. 사용자 모드" << endl;
 	std::cout << "2. 관리자 모드" << endl;
 	std::cout << "3. 회원 가입 요청" << endl;
+
 	int select_mode;
 	cin >> select_mode;
 
-	//**사용자모드
+	
 	switch (select_mode)
 	{
+	//**사용자모드
 	case Select_UserMode:
 
-		cout << "id :" << endl;
 		int inputedID;
 		string inputedPassword;
+
+		cout << "id :" << endl;
 		cin >> inputedID;
+		cout << "password :" << endl;
 		cin >> inputedPassword;
 
+		//회원가입, 관리자 승인
 		Login(inputedID, inputedPassword);
 
-		if (success)
+		if (user_info.m_admin_accpt)
 		{
 			Read_ServerInfo();
 
@@ -114,6 +116,10 @@ void main()
 				cout << "항목에 없는 숫자입니다." << endl;
 				break;
 			}
+		}
+		else
+		{
+			cout << "회원가입이 되지 않은 회원입니다." << endl;
 		}
 
 		//**관리자 모드
