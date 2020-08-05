@@ -27,12 +27,18 @@
     <ClCompile Include="UserMode.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="File.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Default_Include.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="UserInfo, Data.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStruct.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
