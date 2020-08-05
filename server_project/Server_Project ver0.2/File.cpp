@@ -1,4 +1,5 @@
 #include "FileStruct.h"
+#include "ServerCapacity.h"
 
 //UserMode.cpp 하위 File에 관한 클래스
 class File
@@ -52,5 +53,6 @@ void File::DeleteFile(string input_name)
 
 	cout << "------------------------" << endl;
 	cout << "파일 명을 입력해주세요" << endl;
+	cin >> input_name;
 	info.DeleteFile(input_name);
 }

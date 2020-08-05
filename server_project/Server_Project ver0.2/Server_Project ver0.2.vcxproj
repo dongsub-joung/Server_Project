@@ -140,14 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileInfo.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="Join.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="ServerCapacity.cpp" />
     <ClCompile Include="UserMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Default_Include.h" />
     <ClInclude Include="FileStruct.h" />
+    <ClInclude Include="ServerCapacity.h" />
     <ClInclude Include="UserInfo, Data.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
