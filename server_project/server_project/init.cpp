@@ -3,12 +3,7 @@
 using namespace std;
 
 //*enum
-enum Main_Selection
-{
-	Select_UserMode = 1,
-	Select_AdminMode = 2,
-	Select_JoinMode = 3
-};
+
 
 enum selection_FileControl
 {
@@ -39,10 +34,7 @@ void main()
 	std::cout << "2. 관리자 모드" << endl;
 	std::cout << "3. 회원 가입 요청" << endl;
 
-	int select_mode;
-	cin >> select_mode;
 
-	
 	switch (select_mode)
 	{
 	//**사용자모드

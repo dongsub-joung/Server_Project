@@ -142,6 +142,7 @@
     <ClCompile Include="init.cpp" />
     <ClCompile Include="Join.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="UserMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Default_Include.h" />

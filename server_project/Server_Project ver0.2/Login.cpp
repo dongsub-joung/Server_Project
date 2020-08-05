@@ -9,7 +9,7 @@ public:
 
 	bool login_success{ false };
 
-	void init();
+	void init_Login();
 
 private:
 	string id, pw;
@@ -28,24 +28,7 @@ Login::~Login()
 {
 }
 
-const void Login::CheckPassed()
-{
-	bool* ptr = &login_success;
-	*ptr = true;
-}
-
-const int Login::CheckID(string ID)
-{
-	return user_data.m_account_IDPW.count(ID);
-}
-
-const string Login::CheckPW(string ID)
-{
-	string r = user_data.m_account_IDPW.find(id)->second;
-	return r;
-}
-
-void Login::init()
+void Login::init_Login()
 {
 	cout << "Login" << endl;
 	cout << "ID:" << endl;
@@ -67,3 +50,21 @@ void Login::init()
 		cout << "해당 사항이 없습니다." << endl;
 	}
 }
+
+const void Login::CheckPassed()
+{
+	bool* ptr = &login_success;
+	*ptr = true;
+}
+
+const int Login::CheckID(string ID)
+{
+	return user_data.m_account_IDPW.count(ID);
+}
+
+const string Login::CheckPW(string ID)
+{
+	string r = user_data.m_account_IDPW.find(id)->second;
+	return r;
+}
+
