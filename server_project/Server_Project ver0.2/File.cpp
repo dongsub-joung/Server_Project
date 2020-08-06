@@ -6,7 +6,7 @@ class File
 {
 public:
 
-	FileInfo info;
+	FileInfo* info = new FileInfo;
 	
 	void UploadFile(string title, double volum);//파일 업로드
 	void DownroadFile(string input);			//파일 다운로드
@@ -25,7 +25,7 @@ void File::UploadFile(string title, double volum)
 
 	if (available_capacity > 0)
 	{
-		info.UploadFile(title, volum);
+		info->UploadFile(title, volum);
 	}
 	else
 	{
@@ -37,22 +37,22 @@ void File::UploadFile(string title, double volum)
 
 void File::DownroadFile(string input)
 {
-	info.ShowFileList();
+	info->ShowFileList();
 
 	cout << "------------------------" << endl;
 	cout << "파일 명을 입력해주세요" << endl;
 	cin >> input;
-	info.CheckDownloadFile(input);
+	info->CheckDownloadFile(input);
 }
 
 
 
 void File::DeleteFile(string input_name)
 {
-	info.ShowFileList();
+	info->ShowFileList();
 
 	cout << "------------------------" << endl;
 	cout << "파일 명을 입력해주세요" << endl;
 	cin >> input_name;
-	info.DeleteFile(input_name);
+	info->DeleteFile(input_name);
 }

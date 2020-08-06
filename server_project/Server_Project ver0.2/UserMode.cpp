@@ -7,7 +7,8 @@ class UserMode
 {
 public:
 	Login login;
-	
+	ServerCapacity capacity;
+
 	void init_UserMode();
 	void ShowServerCapacity();
 
