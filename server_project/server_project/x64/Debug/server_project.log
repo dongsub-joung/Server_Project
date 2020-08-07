@@ -101,14 +101,15 @@ C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init_class
 C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init_class.h(375,3): error C2065: 'user_info': 선언되지 않은 식별자입니다.
 C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init_class.h(397,27): error C2061: 구문 오류: 식별자 'string'
 C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init_class.h(404,3): error C2065: 'user_info': 선언되지 않은 식별자입니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(26,19): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(26,10): error C2146: 구문 오류: ';'이(가) 'user_info' 식별자 앞에 없습니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(35,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(60,36): error C2440: '<function-style-cast>': 'initializer list'에서 'Login'(으)로 변환할 수 없습니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(60,36): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(60,3): error C2064: 항은 2개의 인수를 받아들이는 함수로 계산되지 않습니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(62,7): error C2065: 'user_info': 선언되지 않은 식별자입니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(64,4): error C3861: 'Read_ServerInfo': 식별자를 찾을 수 없습니다.
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(66,41): error C2059: 구문 오류: '<<'
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(67,41): error C2059: 구문 오류: '<<'
-C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(67,41): fatal error C1003: 오류 수가 100개를 초과했습니다. 컴파일을 중지합니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(21,19): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(21,10): error C2146: 구문 오류: ';'이(가) 'user_info' 식별자 앞에 없습니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(30,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(38,10): error C2065: 'select_mode': 선언되지 않은 식별자입니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(39,2): error C2050: switch 식이 정수 계열이 아닙니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(41,7): error C2065: 'Select_UserMode': 선언되지 않은 식별자입니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(41,7): error C2131: 식이 상수로 계산되지 않았습니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(41,7): message : 상수가 아닌 식 또는 부분식이 있습니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(52,36): error C2440: '<function-style-cast>': 'initializer list'에서 'Login'(으)로 변환할 수 없습니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(52,36): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(52,3): error C2064: 항은 2개의 인수를 받아들이는 함수로 계산되지 않습니다.
+C:\Users\정인섭\Documents\GitHub\ing\server_project\server_project\init.cpp(52,36): fatal error C1003: 오류 수가 100개를 초과했습니다. 컴파일을 중지합니다.

@@ -1,8 +1,7 @@
 #pragma once
 #include "Default_Include.h"
-#include "FileInfo.cpp"
-#include "ServerCapacity.cpp"
-
+#include "FileInfo.h"
+#include "ServerCapacity.h"
 
 class UserMode
 {

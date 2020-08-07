@@ -6,25 +6,21 @@
 class Join
 {
 public:
-
-	void init_Join();
+	void InitJoin();
 
 private:
 	UserData user_data;
 
-	string id;
-	string password;
-	string user_id_number;
+	string m_id;
+	string m_password;
+	string m_user_id_number;
 
-	bool passed_spell{ false };
-	bool passed_length{ false };
-	bool passed_number{ false };
-	bool checked_password{ false };
+	bool CheckUserIdNumber(string user_id_number);	//주민 번호 13자리
 
-	void CheckPassword(string password);
-	bool CheckSpell(string password);
-	bool CheckLength(string password);
-	bool CheckNumber(string password);
+	bool CheckSpell(string password);				//대소문자&숫자만
+	bool CheckLength(string password);				//8자 이상
+	bool CheckNumber(string password);				//주민번호 미포함
+	bool CheckPassword(string password);			//최종 통과
 
 	void AddUserData(string id, string password);
 };
