@@ -36,6 +36,9 @@
     <ClInclude Include="UserMode.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Admin_ApproveUser.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileInfo.cpp">
@@ -51,6 +54,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="UserMode.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ApproveUser.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Admin_ApproveUser.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
