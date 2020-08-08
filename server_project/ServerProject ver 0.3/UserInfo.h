@@ -17,10 +17,10 @@ private:
 	string m_user_ID_number;
 	int m_authority_level[3]{ 1,0,0 };
 
-	string* m_user_ID = new string;
-	string* m_user_PW = new string;
+	//string* m_user_ID = new string;
+	//string* m_user_PW = new string;
 
-	UserInfo(string id, string pw, string number);
+	//UserInfo(string id, string pw, string number);
 
 };
 
