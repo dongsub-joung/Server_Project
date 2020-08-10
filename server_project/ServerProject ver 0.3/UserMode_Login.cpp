@@ -1,14 +1,9 @@
 #include "UserMode_Login.h"
 
-//user 구조체 값을 받아서 초기화 할것.
-UserLogin::UserLogin()
-{
-	
-}
-
-
 void UserLogin::InitLogin()
 {
+	UserLogin user_login(UserInfo*);
+
 	string inputedID;
 	string inputedPW;
 	bool login_success{ true };
@@ -16,6 +11,8 @@ void UserLogin::InitLogin()
 	cout << "---- 로그인 ----" << endl;
 	cout << "id :" << endl;
 	cin >> inputedID;
+	SearchID(inputedID);
+
 	do
 	{
 		if (CheckID(inputedID))
@@ -23,7 +20,7 @@ void UserLogin::InitLogin()
 			cout << "PW:" << endl;
 			cin >> inputedPW;
 
-			string approvePW = CheckPW(inputedID);
+			string approvePW = ReturnPW_Key(inputedID);
 			if (inputedPW == approvePW)
 			{
 				cout << "로그인 완료" << endl;
@@ -37,19 +34,28 @@ void UserLogin::InitLogin()
 	} while (login_success);
 }
 
-const int CheckID(string ID)
+//user 구조체 값을 받아서 초기화 할것.
+UserLogin::UserLogin(UserInfo* newUser)
 {
-	return user_data.m_account_IDPW.count(ID);
-}
-
-const string CheckPW(string ID)
-{
-	m_account_IDPW.m_account_IDPW.find(id)->second;
-	return r;
+	user_login->m_account_IDPW.insert(make_pair(newUser->m_user_ID, newUser->m_user_PW));
+	user_login->m_account_IDpass.insert(make_pair(newUser->m_user_ID, newUser->m_user_ID_number));
 }
 
 
-auto UserLogin::SearchID(string search_ID)
+const bool UserLogin::CheckID(string ID)
+{
+	UserLogin::m_account_IDPW.count(ID);
+	return true;
+}
+
+
+const string UserLogin::ReturnPW_Key(string ID)
+{
+	return UserLogin::m_account_IDPW.find(ID)->second;
+}
+
+
+const auto UserLogin::SearchID(string search_ID)
 {
 	return find(m_account_IDPW.begin(), m_account_IDPW.end(), search_ID);
 }

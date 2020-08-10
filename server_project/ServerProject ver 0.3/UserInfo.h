@@ -21,7 +21,7 @@ static struct PreUser
 	string m_preuser_PW;
 	string m_preuser_ID_number;
 };
-
+  
 UserInfo* newUser;
 PreUser* preuser_info;
 

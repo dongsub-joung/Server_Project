@@ -1,4 +1,7 @@
 #include "Join.h"
+#include "Default_Include.h"
+#include "UserInfo.h"
+
 
 void Join::InitJoin()
 {
@@ -12,7 +15,7 @@ void Join::InitJoin()
 
 	std::cout << "ID를 입력해주세요." << endl;
 	cin >> m_id;
-	
+
 	do
 	{
 		cout << "Pass Word를 입력해주세요." << endl;
@@ -21,23 +24,26 @@ void Join::InitJoin()
 		cout << "* 8자 이상" << endl;
 		cout << "* 주민번호 미포함" << endl;
 		cin >> m_password;
-	} while (CheckPassword(m_password));
+		bool spell = CheckSpell(m_password);
+		bool length = CheckLength(m_password);
+		bool overlap_control = CheckNumber(m_password);
 
-	preuser_info->m_preuser_ID = m_user_id_number;
+		CheckPassword(spell, length, overlap_control);
+	} while (m_password_control);
+
+	SavePreUser(&preUser);
+}
+
+
+void Join::SavePreUser(PreUser* preUser)
+{
+	preuser_info->m_preuser_ID = m_id;
 	preuser_info->m_preuser_PW = m_password;
 	preuser_info->m_preuser_ID_number = m_user_id_number;
 }
 
-//arrray에 데이터를 저장
-string Join::AddUserData()
-{
-#define USER_DATA 3
-	string preuser_container[USER_DATA]{ m_id,m_password, m_user_id_number };
-	return preuser_container[USER_DATA];
-}
 
-
-bool Join::CheckSpell(string password)
+bool Join::CheckSpell(const string password)
 {
 	string pw = password;
 	regex spell("^[A-za-z0-9]*$");
@@ -52,11 +58,11 @@ bool Join::CheckSpell(string password)
 }
 
 
-bool Join::CheckLength(string password)
+bool Join::CheckLength(const string password)
 {
 	string pw = password;
 	int pw_size = pw.size();
-	if (pw_size>8)
+	if (pw_size > 8)
 	{
 		return true;
 	}
@@ -67,25 +73,26 @@ bool Join::CheckLength(string password)
 }
 
 
-bool Join::CheckNumber(string password)
+bool Join::CheckNumber(const string password)
 {
 	string pw = password;
-	if (m_user_id_number != pw)
+	string id_num = m_user_id_number;
+	if (id_num != pw)
 	{
 		return true;
 	}
 	else
 	{
 		cout << "주민번호와 일치하는 비밀번호입니다." << endl;
-	}	
+	}
 }
 
 
-bool Join::CheckPassword(string password)
+void Join::CheckPassword(const bool spell, const bool length, const bool overlap)
 {
-	if (CheckSpell(password) && CheckLength(password) && CheckNumber(password))
+	if (spell && length && overlap)
 	{
-		return true;
+		this->m_password_control = false;
 	}
 	else
 	{
@@ -94,14 +101,13 @@ bool Join::CheckPassword(string password)
 }
 
 
-bool Join::CheckUserIdNumber(string m_user_id_number)
+bool Join::CheckUserIdNumber(const string m_user_id_number)
 {
-	string user_id_number = m_user_id_number;
-	int char_size = user_id_number.size();
+	int char_size = m_user_id_number.size();
 
-	if (char_size == 13)
+	if (char_size <= 13)
 	{
-		return true;
+		return false;
 	}
 	else
 	{
