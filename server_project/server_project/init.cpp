@@ -48,6 +48,25 @@ void main()
 		cout << "password :" << endl;
 		cin >> inputedPassword;
 
+		auto m_SearchID(string search_ID)
+	{
+		return find(m_userID_array.begin(), m_userID_array.end(), search_ID);
+	}
+
+	void AccepteUser()
+	{
+		m_admin_accpt = { true };
+	}
+
+	void Logining(string id, string pw)
+	{
+		auto return_key = m_SearchID(id);
+		if (return_key == pw )
+		{
+
+		}
+	}
+
 		//회원가입, 관리자 승인
 		Login(inputedID, inputedPassword);
 
