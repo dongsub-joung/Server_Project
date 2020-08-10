@@ -13,11 +13,6 @@ CapacityInfo::CapacityInfo()
 
 /* ####### 용량 ####### */
 
-ServerCapacity::ServerCapacity()
-	:m_avaible(),
-	m_used()
-{}
-
 //파일 총 용량) 계산 후 값 저장
 void ServerCapacity::UsedCapacity()
 {

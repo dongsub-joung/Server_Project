@@ -22,7 +22,10 @@ void Join::InitJoin()
 		cout << "* 주민번호 미포함" << endl;
 		cin >> m_password;
 	} while (CheckPassword(m_password));
-	
+
+	preuser_info->m_preuser_ID = m_user_id_number;
+	preuser_info->m_preuser_PW = m_password;
+	preuser_info->m_preuser_ID_number = m_user_id_number;
 }
 
 //arrray에 데이터를 저장

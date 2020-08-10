@@ -20,12 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Admin_ApproveUser.cpp" />
-    <ClCompile Include="ApproveUser.cpp" />
     <ClCompile Include="FileClass.cpp" />
     <ClCompile Include="FileInfo.cpp" />
     <ClCompile Include="Join.cpp" />
+    <ClCompile Include="Mian.cpp" />
     <ClCompile Include="ServerCapacity.cpp" />
     <ClCompile Include="UserMode.cpp" />
+    <ClCompile Include="UserMode_Login.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin_ApproveUser.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="ServerCapacity.h" />
     <ClInclude Include="UserInfo.h" />
     <ClInclude Include="UserMode.h" />
+    <ClInclude Include="UserMode_Login.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

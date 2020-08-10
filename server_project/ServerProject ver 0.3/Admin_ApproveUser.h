@@ -1,3 +1,8 @@
 #pragma once
 #include "UserInfo.h"
-#include "Join.h"
+
+class Admin_ApproveUser
+{
+public:
+	void init_ApproveUser();
+};
