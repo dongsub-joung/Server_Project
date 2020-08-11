@@ -9,7 +9,7 @@ void UserMode::init_UserMode()
 
 void UserMode::ShowServerCapacity()
 {
-	CapacityInfo info = CapacityInfo::getCapacityInfo();
+	
 	cout << "서버 전체 용량: " << info.m_storage_capacity << endl;
 	cout << "현재 사용 용량: " << info.m_used_capacity << endl;
 	cout << "사용 가능 용량: " << info.m_avaible_capacity << endl;
@@ -52,7 +52,6 @@ void UserMode::FileDownload()
 
 void UserMode::FileUpload()
 {
-	CapacityInfo info = CapacityInfo::getCapacityInfo();
 	double user_capactiy = info.m_used_capacity;
 	file_class->UploadFile(user_capactiy);
 }

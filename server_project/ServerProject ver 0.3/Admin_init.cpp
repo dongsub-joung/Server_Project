@@ -1,15 +1,13 @@
 #include "Admin_init.h"
-
+#include "FileClass.h"
+#include "UserMode.h"
 
 void AdminModeFunction::InitAdminMode()
 {
-	string inputed;
+
 	do
 	{
-		std::cout << "4자리 Code를 입력해주세요.: " << endl;
-		std::cout << "Code: " << endl;
-		cin >> inputed;
-		CheckCode(inputed);
+		AdminLogin();
 	} while (admin_login);
 	
 	int selected_admin_opt; //관리자 서비스 분기
@@ -21,30 +19,31 @@ void AdminModeFunction::InitAdminMode()
 		switch (selected_admin_opt)
 		{
 		case OPT_ChangeAdminCode:
-			AdminFunction.ChangeAdminCode();
+			ChangeAdminCode();
 			break;
 
 		case OPT_ShowJoinedUserInfo:
-			AdminFunction.ShowUserInfo();
+			ShowUserInfo();
 			break;
 
 		case OPT_Sharding:
-			AdminFunction.Sharding();
+			Sharding();
 			break;
 
 		case OPT_WaitingUserInfo:
-			AdminFunction.WaitingUserInfo();
+			WaitingUserInfo();
 			break;
 
 		case OPT_FileUpload:
-
+			user_mode.FileUpload();
+			break;
 
 		case OPT_FileDelete:
-
+			user_mode.FileDelete();
 			break;
 
 		case OPT_FileDownload:
-
+			user_mode.DeleteFile();
 			break;
 
 		default:
@@ -55,32 +54,39 @@ void AdminModeFunction::InitAdminMode()
 
 }
 
+void AdminModeFunction::AdminLogin()
+{
+	string inputed;
+	std::cout << "4자리 Code를 입력해주세요.: " << endl;
+	std::cout << "Code: " << endl;
+	cin >> inputed;
+	CheckCode(inputed);
+}
 
  void AdminModeFunction::CheckCode(string inputed)
 {
-
-
+	Admin_.CheckingCode(inputed);
 	this->admin_login = false;
 }
 
  void AdminModeFunction::ChangeAdminCode()
  {
-
+	 Admin_.ChangeCode();
  }
 
  void AdminModeFunction::ShowUserInfo()
  {
-
+	 Admin_.PrintUserInfo();
  }
 
  void AdminModeFunction::Sharding()
  {
-
+	 Admin_.AddCapacity();
  }
 
  void AdminModeFunction::WaitingUserInfo()
  {
-
+	 Admin_.ApproveUser();
  }
 
 void AdminModeFunction::PrintMenu()

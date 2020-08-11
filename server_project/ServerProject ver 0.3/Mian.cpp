@@ -1,5 +1,5 @@
 #include "UserMode.h"
-
+#include "Admin_init.h"
 #include "Join.h"
 
 enum Main_Selection
@@ -9,7 +9,8 @@ enum Main_Selection
 	Select_JoinMode = 3
 };
 
-UserMode user_modeasdf;
+UserMode user_mode;
+AdminModeFunction admin_mode;
 Join user_join;
 
 int main()
@@ -25,12 +26,13 @@ int main()
 		switch (select_mode)
 		{
 		case Select_UserMode:
-			user_modeasdf.ShowServerCapacity();
-			user_modeasdf.init_UserMode();
+			user_mode.ShowServerCapacity();
+			user_mode.init_UserMode();
 			break;
 
 		case Select_AdminMode:
-
+			user_mode.ShowServerCapacity();
+			admin_mode.InitAdminMode();
 			break;
 
 		case Select_JoinMode:

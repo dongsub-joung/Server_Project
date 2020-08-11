@@ -1,60 +1,87 @@
+#include "Admin_Class.h"
+#include "Admin_ApproveUser.h"
 
+UserInfo newUser;
+PreUser preUser;
+CapacityInfo server_capacity;
 
-int CheckCode(string inputed)
+bool AdminClass::CheckingCode(string inputed)
 {
 	//구현하면 좋은 것) 4자리 넘었을 경우 오버플로우를 제안하는 기능
-	string codeasdf;//기존 코드
+	string default_code = admin.m_adminCode;
 
-	if (inputed == codeasdf)
+	if (inputed == default_code)
 	{
-		bool* ptr = &admin.m_admin_login_state;
-		*ptr = true;
-
-		return 1;
+		return false;
+	}
+	else if (inputed.size()>4)
+	{
+		cout << "코드는 4자리입니다." << endl;
+		return true;
 	}
 	else
 	{
-		return 0;
+		return true;
 	}
 }
 
-
-void ChangeAdminCode()
+void AdminClass::ChangeCode()
 {
-	char pre; //기존 코드
-	string* ptr = &AdminFunction.Admin_info.m_adminCode;
-	*ptr = pre;
+	string new_code;
+
+	cout << "변경하실 코드를 입력하시오." << endl;
+	cin >> new_code;
+	cout << "코드를 변경합니다." << endl;
+	string *code = &admin.m_adminCode;
+	code = &new_code;
+
+	cout << "변경 완료" << endl;
 }
 
-void ShowUserInfo()
+void AdminClass::PrintUserInfo()
 {
-	//유저 struc에서 배열 가져옴.
-	array List;
+	vector<string> &users = g_users;
+	cout << "가입자 목록을 출력합니다." << endl;
 
-	for (int i = 0; i < List.length; i++)
+	if (users.empty() != true)
 	{
-		std::cout << "Index" << i << List[i] << endl;
+		for (int i = 0; i <= users.max_size(); i++)
+		{
+			cout << "Index" << i << users[i] << endl;
+		}
+	}
+	else
+	{
+		cout << "가입자가 없습니다." << endl;
 	}
 }
 
-void Sharding()
+void AdminClass::AddCapacity()
 {
-
-	//전체용량을 가져옴
-	double* ptr = &server_capacity.m_storage_capacity;
+	double *hole_capacity = &(server_capacity.m_storage_capacity);
 
 	std::cout << "전체 시스템 용량을 증설합니다." << std::endl;
-	std::cout << "현재 전체 용량: " << *ptr << std::endl;
-	*ptr += 51200;
-	std::cout << "증설 후 전체 용량: " << *ptr << std::endl;
+	std::cout << "현재 전체 용량: " << (*hole_capacity) << std::endl;
+	(*hole_capacity) += 51200;
+	std::cout << "증설 후 전체 용량: " << (*hole_capacity) << std::endl;
 }
 
-void WaitingUserInfo()
+void AdminClass::ApproveUser()
 {
-	array pre_user_list;
+	vector<string>& pre_user_list = g_pre_users;
 
-	for (int i = 0; i < List.length; i++)
+	if (pre_user_list.empty() != true)
 	{
-		std::cout << "Index" << i << List[i] << endl;
+		for (int i = 0; i <= pre_user_list.max_size(); i++)
+		{
+			cout << "Index" << i << pre_user_list[i] << endl;
+		}
 	}
+	else
+	{
+		cout << "가입요청자가 없습니다." << endl;
+	}
+
+	Admin_ApproveUser approve_user = Admin_ApproveUser();
+	approve_user.init_ApproveUser();
 }

@@ -10,13 +10,6 @@ struct CapacityInfo
 	double m_avaible_capacity;
 	int m_count_sharding;			//증설 가능 횟수
 
-
-	static CapacityInfo getCapacityInfo()
-	{
-		if (capacity_info == NULL) capacity_info = new CapacityInfo();
-		return *capacity_info;
-	}
-
 private:
 	enum default_capacity
 	{
@@ -25,8 +18,6 @@ private:
 		init_avaible = 0,
 		defaut_sharding_count = 3
 	};
-	CapacityInfo();
-	static CapacityInfo* capacity_info;
 };
 
 

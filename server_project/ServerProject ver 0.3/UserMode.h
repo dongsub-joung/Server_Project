@@ -12,12 +12,14 @@ public:
 
 	void init_UserMode();
 	void ShowServerCapacity();
+	CapacityInfo info = CapacityInfo();
+
+	void FileDownload();
+	void FileUpload();
+	void FileDelete();
 
 private:
 	UserInfo* new_user = newUser;
 	void Login(UserInfo *new_user);
 	void FileMenu();
-	void FileDownload();
-	void FileUpload();
-	void FileDelete();
 };

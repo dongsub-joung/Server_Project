@@ -7,12 +7,21 @@
 //포인터 이용 첫째자리 초기화 후, 공통된 index 사용해서 유저를 찾음
 //(id값만 검색해서 or 주민 번호 검색해서 찾을 수 있음)
 
+vector <string> g_users;
+vector <string> g_pre_users;
+
 static struct UserInfo
 {
 	string m_user_ID;
 	string m_user_PW;
 	string m_user_ID_number;
 	int m_authority_level[3]{ 1,0,0 };
+
+	UserInfo(){}
+	UserInfo(string id)
+	{
+		g_users.push_back(id);
+	}
 };
 
 static struct PreUser
@@ -20,6 +29,12 @@ static struct PreUser
 	string m_preuser_ID;
 	string m_preuser_PW;
 	string m_preuser_ID_number;
+
+	PreUser(){}
+	PreUser(string id)
+	{
+		g_pre_users.push_back(id);
+	}
 };
   
 UserInfo* newUser;

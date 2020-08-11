@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Admin_ApproveUser.cpp" />
+    <ClCompile Include="Admin_Class.cpp" />
+    <ClCompile Include="Admin_init.cpp" />
     <ClCompile Include="FileClass.cpp" />
     <ClCompile Include="FileInfo.cpp" />
     <ClCompile Include="Join.cpp" />
@@ -30,6 +32,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin_ApproveUser.h" />
+    <ClInclude Include="Admin_Class.h" />
+    <ClInclude Include="Admin_init.h" />
     <ClInclude Include="Default_include.h" />
     <ClInclude Include="FileClass.h" />
     <ClInclude Include="FileInfo.h" />

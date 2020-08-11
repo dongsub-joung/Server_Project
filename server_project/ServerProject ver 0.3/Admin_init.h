@@ -2,24 +2,6 @@
 
 #include "Admin_Class.h"
 
-struct AdminInfo
-{
-public:
-	string m_adminCode{ "0000" };
-
-	static AdminInfo& getInstance()
-	{
-		static AdminInfo instance;
-		return instance;
-	}
-
-private:
-	//기본 코드 0000 초기화
-	AdminInfo() {}
-	AdminInfo(const AdminInfo& admin_info){}
-	AdminInfo& operater(const AdminInfo& admin_info){}
-};
-
 class AdminModeFunction
 {
 public:
@@ -27,7 +9,9 @@ public:
 
 private:
 	bool admin_login{ true };
-	AdminInfo admin = AdminInfo::getInstance();
+	AdminClass admin_class = AdminClass();
+	AdminClass& Admin_ = admin_class;
+	UserMode user_mode = UserMode();
 
 	enum selecteOPT
 	{
@@ -41,6 +25,7 @@ private:
 	};
 
 // ------ function ----------
+	void AdminLogin();
 	void CheckCode(string inputed);			//0. 코드 인증
 	void ChangeAdminCode();					//1.관리자 코드 변경
 	void ShowUserInfo();					//2. 유저 정보 가져와서 출력
