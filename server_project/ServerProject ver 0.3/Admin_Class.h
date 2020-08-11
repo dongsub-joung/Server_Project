@@ -4,3 +4,13 @@
 #include "FileClass.h"
 #include "ServerCapacity.h"
 
+
+class AdminClass
+{
+public:
+	void CheckingCode();
+
+private:
+
+
+};

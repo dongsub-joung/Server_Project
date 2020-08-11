@@ -2,6 +2,7 @@
 
 int CheckCode(string inputed)
 {
+	//구현하면 좋은 것) 4자리 넘었을 경우 오버플로우를 제안하는 기능
 	string codeasdf;//기존 코드
 
 	if (inputed == codeasdf)
