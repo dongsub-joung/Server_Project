@@ -7,9 +7,9 @@ class File
 {
 public:
 	~File() {};
-	FileInfo* info = new FileInfo;
-
-	void UploadFile(string title, double volum);//파일 업로드
-	void DownroadFile(string input);			//파일 다운로드
-	void DeleteFile(string input_name);			//파일 삭제
+	FileInfo* info = new FileInfo();
+	
+	void UploadFile(double capacity);//파일 업로드
+	void DownroadFile();			//파일 다운로드
+	void DeleteFile();			//파일 삭제
 };

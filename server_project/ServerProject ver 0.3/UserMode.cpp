@@ -1,4 +1,5 @@
 #include "UserMode.h"
+#include "ServerCapacity.h"
 
 void UserMode::init_UserMode()
 {
@@ -6,10 +7,16 @@ void UserMode::init_UserMode()
 	FileMenu();
 }
 
+void UserMode::ShowServerCapacity()
+{
+	CapacityInfo info = CapacityInfo::getCapacityInfo();
+	cout << "서버 전체 용량: " << info.m_storage_capacity << endl;
+	cout << "현재 사용 용량: " << info.m_used_capacity << endl;
+	cout << "사용 가능 용량: " << info.m_avaible_capacity << endl;
+}
 
 void UserMode::FileMenu()
 {
-
 	cout << "1. 파일 다운로드" << endl;
 	cout << "2. 파일 업로드 " << endl;
 	cout << "3. 파일 삭제 " << endl;
@@ -38,9 +45,19 @@ void UserMode::FileMenu()
 	} while (true);
 }
 
-void UserMode::ShowServerCapacity()
+void UserMode::FileDownload()
 {
-	cout << "서버 전체 용량: " <<  <<endl;
-	cout << "현재 사용 용량: " <<  <<endl;
-	cout << "사용 가능 용량: " <<  <<endl;
+	file_class->DownroadFile();
+}
+
+void UserMode::FileUpload()
+{
+	CapacityInfo info = CapacityInfo::getCapacityInfo();
+	double user_capactiy = info.m_used_capacity;
+	file_class->UploadFile(user_capactiy);
+}
+
+void UserMode::FileDelete()
+{
+	file_class->DeleteFile();
 }

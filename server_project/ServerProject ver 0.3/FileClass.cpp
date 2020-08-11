@@ -5,13 +5,19 @@ File::~File()
 	delete info;
 }
 
-void File::UploadFile(string title, double volum)
+void File::UploadFile(double available_capacity)
 {
-	//서버 용량을 받아옴.
-	double capacity{ 1 };
-	double available_capacity = capacity - volum;
+	string title;
+	double volum;
 
-	if (available_capacity > 0)
+	cout << "-----업로드-----" << endl;
+	cout << "파일 명을 입력해주세요" << endl;
+	cin >> title;
+	cout << "파일 용량을 입력해주세요(MB)" << endl;
+	cin >> volum;
+
+	double check_volum = available_capacity - volum;
+	if (check_volum > 0)
 	{
 		info->UploadFile(title, volum);
 	}
@@ -22,23 +28,25 @@ void File::UploadFile(string title, double volum)
 }
 
 
-void File::DownroadFile(string input)
+void File::DownroadFile()
 {
 	info->ShowFileList();
 
 	cout << "------------------------" << endl;
 	cout << "파일 명을 입력해주세요" << endl;
+	string input;
 	cin >> input;
 	info->CheckDownloadFile(input);
 }
 
 
-void File::DeleteFile(string input_name)
+void File::DeleteFile()
 {
 	info->ShowFileList();
 
 	cout << "------------------------" << endl;
 	cout << "파일 명을 입력해주세요" << endl;
+	string input_name;
 	cin >> input_name;
 	info->DeleteFile(input_name);
 }

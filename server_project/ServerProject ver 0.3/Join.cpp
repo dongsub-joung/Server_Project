@@ -1,7 +1,4 @@
 #include "Join.h"
-#include "Default_Include.h"
-#include "UserInfo.h"
-
 
 void Join::InitJoin()
 {

@@ -11,7 +11,7 @@ void UserLogin::InitLogin()
 	cout << "---- 로그인 ----" << endl;
 	cout << "id :" << endl;
 	cin >> inputedID;
-	SearchID(inputedID);
+	
 
 	do
 	{
@@ -52,25 +52,4 @@ const bool UserLogin::CheckID(string ID)
 const string UserLogin::ReturnPW_Key(string ID)
 {
 	return UserLogin::m_account_IDPW.find(ID)->second;
-}
-
-
-const auto UserLogin::SearchID(string search_ID)
-{
-	return find(m_account_IDPW.begin(), m_account_IDPW.end(), search_ID);
-}
-
-void UserLogin::Logining(string id, string pw)
-{
-	auto *return_key = SearchID(id);
-	string ex(return_key);
-	//ltr 반복자 문제를 해결해야함
-	if ((*return_key) == pw)
-	{
-		cout << "로그인 성공" << endl;
-	}
-	else
-	{
-		cout << "회원이 아닙니다." << endl;
-	}
 }
