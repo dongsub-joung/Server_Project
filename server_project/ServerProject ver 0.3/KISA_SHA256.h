@@ -84,7 +84,7 @@ void SHA256_Process( OUT SHA256_INFO *Info, IN const BYTE *pszMessage, IN UINT u
 @param Info : SHA256_Init 호출하여 초기화된 구조체(내부적으로 사용된다.)
 @param pszDigest : 암호문
 */
-void SHA256_Close( OUT SHA256_INFO *Info, OUT BYTE *pszDigest );
+void SHA256_Close(OUT SHA256_INFO* Info, IN BYTE* pszDigest);
 
 /**
 @brief 사용자 입력 평문을 한번에 처리

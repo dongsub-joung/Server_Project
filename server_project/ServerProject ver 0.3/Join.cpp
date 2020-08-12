@@ -31,11 +31,13 @@ void Join::InitJoin()
 	SavePreUser(&preUser);
 }
 
-
+SHA256_Init sha = SHA256_Init();
 void Join::SavePreUser(PreUser* preUser)
 {
 	preuser_info->m_preuser_ID = m_id;
 	preuser_info->m_preuser_PW = m_password;
+
+	SHA256_Init.HashUserInfo(BYTE plain[32]);
 	preuser_info->m_preuser_ID_number = m_user_id_number;
 }
 

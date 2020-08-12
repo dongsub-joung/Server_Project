@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "SHA256_Init.cpp"
 #include "Default_Include.h"
 #include "UserInfo.h"
 
@@ -16,6 +16,7 @@ public:
 	string m_user_id_number;
 
 	PreUser preUser;
+
 	void SavePreUser(PreUser* preUser);	//관리자 모드용 유저 정보 반환 
 
 private:
