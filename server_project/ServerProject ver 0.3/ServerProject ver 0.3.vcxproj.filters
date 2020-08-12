@@ -48,6 +48,12 @@
     <ClInclude Include="Admin_Class.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="KISA_SHA256.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SHA256_Join.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileInfo.cpp">
@@ -78,6 +84,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Admin_Class.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="KISA_SHA256.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SHA256_Join.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

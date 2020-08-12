@@ -31,14 +31,15 @@ void Join::InitJoin()
 	SavePreUser(&preUser);
 }
 
-SHA256_Init sha = SHA256_Init();
+typedef unsigned char BYTE;
 void Join::SavePreUser(PreUser* preUser)
 {
 	preuser_info->m_preuser_ID = m_id;
 	preuser_info->m_preuser_PW = m_password;
 
-	SHA256_Init.HashUserInfo(BYTE plain[32]);
-	preuser_info->m_preuser_ID_number = m_user_id_number;
+	//preuser_info->m_preuser_ID_number = m_user_id_number;
+	//vector<BYTE> hased 의 마지막 원소에 해쉬화한 주민번호를 저장
+	sha256_join.HashUserInfo();
 }
 
 

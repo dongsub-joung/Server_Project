@@ -1,8 +1,8 @@
 #pragma once
 
-#include "SHA256_Init.cpp"
 #include "Default_Include.h"
 #include "UserInfo.h"
+#include "SHA256_Join.h"
 
 class Join
 {
@@ -16,6 +16,7 @@ public:
 	string m_user_id_number;
 
 	PreUser preUser;
+	SHA256_Join sha256_join;
 
 	void SavePreUser(PreUser* preUser);	//관리자 모드용 유저 정보 반환 
 

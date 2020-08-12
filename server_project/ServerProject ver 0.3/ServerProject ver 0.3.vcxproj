@@ -25,8 +25,10 @@
     <ClCompile Include="FileClass.cpp" />
     <ClCompile Include="FileInfo.cpp" />
     <ClCompile Include="Join.cpp" />
+    <ClCompile Include="KISA_SHA256.c" />
     <ClCompile Include="Mian.cpp" />
     <ClCompile Include="ServerCapacity.cpp" />
+    <ClCompile Include="SHA256_Join.cpp" />
     <ClCompile Include="UserMode.cpp" />
     <ClCompile Include="UserMode_Login.cpp" />
   </ItemGroup>
@@ -38,7 +40,9 @@
     <ClInclude Include="FileClass.h" />
     <ClInclude Include="FileInfo.h" />
     <ClInclude Include="Join.h" />
+    <ClInclude Include="KISA_SHA256.h" />
     <ClInclude Include="ServerCapacity.h" />
+    <ClInclude Include="SHA256_Join.h" />
     <ClInclude Include="UserInfo.h" />
     <ClInclude Include="UserMode.h" />
     <ClInclude Include="UserMode_Login.h" />
