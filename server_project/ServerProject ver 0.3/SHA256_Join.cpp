@@ -28,4 +28,3 @@ void SHA256_Join::HashUserInfo()
 		hased.push_back(hash);
 	}
 }
-12
