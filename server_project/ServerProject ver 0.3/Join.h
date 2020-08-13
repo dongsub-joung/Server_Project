@@ -18,7 +18,7 @@ public:
 	PreUser preUser;
 	SHA256_Join sha256_join;
 
-	void SavePreUser(PreUser* preUser);	//관리자 모드용 유저 정보 반환 
+	void SavePreUser();	//관리자 모드용 유저 정보 반환 
 
 private:
 	bool m_password_control{ true };

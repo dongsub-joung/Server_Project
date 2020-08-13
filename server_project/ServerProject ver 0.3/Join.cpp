@@ -28,10 +28,10 @@ void Join::InitJoin()
 		CheckPassword(spell, length, overlap_control);
 	} while (m_password_control);
 
-	SavePreUser(&preUser);
+	SavePreUser();
 }
 
-void Join::SavePreUser(PreUser* preUser)
+void Join::SavePreUser()
 {
 	preuser_info->m_preuser_ID = m_id;
 	preuser_info->m_preuser_PW = m_password;

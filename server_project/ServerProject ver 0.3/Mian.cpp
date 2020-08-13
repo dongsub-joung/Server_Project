@@ -1,3 +1,11 @@
+/**
+*@bref			init CMD Server
+*@details		CMD Server의 첫화면과 switch문
+*@returnCnt		return 0
+*@bug			
+*@todo			암호화 구현, 유저 권한, 휴먼계정
+*/
+
 #include "UserMode.h"
 #include "Admin_init.h"
 #include "Join.h"

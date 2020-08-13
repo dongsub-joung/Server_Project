@@ -28,9 +28,9 @@
     <ClCompile Include="KISA_SHA256.c" />
     <ClCompile Include="Mian.cpp" />
     <ClCompile Include="ServerCapacity.cpp" />
-    <ClCompile Include="SHA256_Join.cpp" />
     <ClCompile Include="UserMode.cpp" />
     <ClCompile Include="UserMode_Login.cpp" />
+    <ClCompile Include="SHA256_Join.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin_ApproveUser.h" />

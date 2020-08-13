@@ -1,3 +1,10 @@
+/**
+*@brief			Init UserMode
+*@details		서버 용량 출력, 파일 다운로드,업로드,삭제 기능
+*@author		정동섭
+*version		0.0.5
+*/
+
 #include "UserMode.h"
 #include "ServerCapacity.h"
 
