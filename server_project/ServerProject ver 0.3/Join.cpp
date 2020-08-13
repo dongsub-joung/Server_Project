@@ -31,7 +31,6 @@ void Join::InitJoin()
 	SavePreUser(&preUser);
 }
 
-typedef unsigned char BYTE;
 void Join::SavePreUser(PreUser* preUser)
 {
 	preuser_info->m_preuser_ID = m_id;
