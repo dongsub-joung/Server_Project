@@ -1,3 +1,10 @@
+/**
+*@brief			Common: File Functions(Read, Write, Delete)
+*@details		Input data and Save in struct `FileInfo`
+*@author		Joung Dong Sub
+*@version		0.0.3
+*/
+
 #include "FileClass.h"
 
 File::~File()

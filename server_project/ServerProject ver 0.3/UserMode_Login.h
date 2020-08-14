@@ -11,11 +11,10 @@ public:
 
 private:
 	UserLogin *user_login;
-	map<string, string> m_account_IDPW;			//ID+PW
-	map<string, string> m_account_IDpass;		//ID+pass
+	map<string, string> m_account_IDPW;			///Key:ID, Value:PW
 
-	const bool CheckID(string ID);				//ID를 이용해서 주민등록번호 조회
-	const auto SearchID(string search_ID);		//ID이용 PW검색
+	const bool CheckID(string ID);				///Search User ID Number (Key: ID) return 0 or 1
+	const auto SearchID(string search_ID);		///Search Password value (Key: ID) return string value
 
 	const string ReturnPW_Key(string ID);
 };

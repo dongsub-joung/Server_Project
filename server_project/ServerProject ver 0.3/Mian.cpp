@@ -1,9 +1,10 @@
 /**
 *@bref			init CMD Server
-*@details		CMD Server의 첫화면과 switch문
-*@returnCnt		return 0
-*@bug			
-*@todo			암호화 구현, 유저 권한, 휴먼계정
+*@details		Init CMD Server: switch
+*@returnCnt		return 0		
+*@todo			Encoding UserInfo and Admin code
+*				User authoriy
+*				Expection: Handler in failure Account
 */
 
 #include "UserMode.h"

@@ -1,3 +1,14 @@
+/**
+*@brief			Init Join
+*@details
+*			Join UI
+*			Filter PW
+*			Save User ID Number
+*			Encoding Password used SHA 256 
+*@author		Joung Dong Sub
+*version		0.0.3
+*/
+
 #include "Join.h"
 
 void Join::InitJoin()
@@ -31,13 +42,17 @@ void Join::InitJoin()
 	SavePreUser();
 }
 
+/**
+*@todo
+*		preuser_info->m_preuser_ID_number = m_user_id_number;
+*		vector<BYTE> hased 의 마지막 원소에 해쉬화한 주민번호를 저장
+*		능력부족으로 구현 불가
+*/
 void Join::SavePreUser()
 {
 	preuser_info->m_preuser_ID = m_id;
 	preuser_info->m_preuser_PW = m_password;
 
-	//preuser_info->m_preuser_ID_number = m_user_id_number;
-	//vector<BYTE> hased 의 마지막 원소에 해쉬화한 주민번호를 저장
 	sha256_join.HashUserInfo();
 }
 

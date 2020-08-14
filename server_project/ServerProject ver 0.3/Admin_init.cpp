@@ -1,3 +1,16 @@
+/**
+*@brief			Init AdminMode
+*@details		
+*			UI and Show menu
+*				- Change Admin code
+*				- Show User Infomation
+*				- Sharding
+*				- Show PreUser Infomation and Approve PreUser
+*				- (Common) File Functions(Read, Write, Delete)
+*@author		Joung Dong Sub
+*version		0.0.3
+*/
+
 #include "Admin_init.h"
 #include "FileClass.h"
 #include "UserMode.h"

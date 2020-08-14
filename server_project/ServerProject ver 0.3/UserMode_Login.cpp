@@ -1,3 +1,10 @@
+/**
+*@brief			UserMode: Login
+*@details		Login UI, Using class `UserInfo` for get value data and compare inputed-value
+*@author		Joung Dong Sub
+*version		0.0.3
+*/
+
 #include "UserMode_Login.h"
 
 void UserLogin::InitLogin()

@@ -1,3 +1,15 @@
+/**
+*@brief			AdminMode Functions
+*@details
+*				1. Change Admin code
+*				2. Show User Infomation
+*				3. Sharding
+*				4. Show PreUser Infomation and Approve PreUser
+*				(Common) File Functions(Read, Write, Delete)
+*@author		Joung Dong Sub
+*version		0.0.3
+*/
+
 #include "Admin_Class.h"
 #include "Admin_ApproveUser.h"
 

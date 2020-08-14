@@ -2,7 +2,6 @@
 #include "Default_Include.h"
 #include "FileInfo.h"
 
-/* ####### 서버 용량 ####### */
 struct CapacityInfo
 {
 	double m_storage_capacity;		//MB`
@@ -25,8 +24,8 @@ class ServerCapacity
 {
 public:
 
-	void UsedCapacity();			//사용된 용량 구하기
-	void CalculateCapacity();		//전체 용량-사용된 용량 = 남은 용량
+	void UsedCapacity();			
+	void CalculateCapacity();		
 	void SendStorageCapacity();		
 
 private:

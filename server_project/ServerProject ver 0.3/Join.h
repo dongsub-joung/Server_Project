@@ -18,17 +18,16 @@ public:
 	PreUser preUser;
 	SHA256_Join sha256_join;
 
-	void SavePreUser();	//관리자 모드용 유저 정보 반환 
+	void SavePreUser();
 
 private:
 	bool m_password_control{ true };
 
-	bool CheckUserIdNumber(string user_id_number);	//주민 번호 13자리
-
-	bool CheckSpell(string password);				//대소문자&숫자만
-	bool CheckLength(string password);				//8자 이상
-	bool CheckNumber(string password);				//주민번호 미포함
-	void CheckPassword(bool, bool, bool);			//최종 통과
+	bool CheckUserIdNumber(string user_id_number);	///User ID Number) Char[13]
+	bool CheckSpell(string password);				///Password) a-z,A-Z,0-9
+	bool CheckLength(string password);				///Password) char[n], n>8
+	bool CheckNumber(string password);				///Password) Do not use `User ID Number`
+	void CheckPassword(bool, bool, bool);			///Final Pass
 
 
 };

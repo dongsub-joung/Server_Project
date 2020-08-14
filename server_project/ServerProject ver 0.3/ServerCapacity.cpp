@@ -1,6 +1,15 @@
+/**
+*@brief			About Servercapacity
+*@details		
+*				Save data: Hole, Avaible, Used Capacity
+*@author		Joung Dong Sub
+*@version		0.0.3
+*/
+
+
 #include "ServerCapacity.h"
 
-//기본 용량 50G, 용량 추가 3번
+///Default 50G, Sharding limite 3
 CapacityInfo::CapacityInfo()
 	:m_storage_capacity(),
 	m_used_capacity(),
@@ -10,23 +19,20 @@ CapacityInfo::CapacityInfo()
 	default_capacity, init_used, init_avaible, defaut_sharding_count;
 };
 
-
-/* ####### 용량 ####### */
-
-//파일 총 용량) 계산 후 값 저장
+///Sumurizate each files
 void ServerCapacity::UsedCapacity()
 {
 	file_info->SumFileVolume();
 	this->m_used = file_info->m_sum_files;
 }
 
-//사용가능 용량) 계산 후 값 저장
+///Calculate avaible capacity
 void ServerCapacity::CalculateCapacity()
 {
 	this->m_avaible = (capacity.m_storage_capacity) - (this->m_used);
 }
 
-// 값 초기화
+/// Save value
 void ServerCapacity::SendStorageCapacity()
 {
 	capacity.m_used_capacity = this->m_used;
