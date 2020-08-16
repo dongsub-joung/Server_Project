@@ -23,7 +23,7 @@ void AdminModeFunction::InitAdminMode()
 		AdminLogin();
 	} while (admin_login);
 	
-	int selected_admin_opt; //관리자 서비스 분기
+	int selected_admin_opt;	///< switch index value
 	do
 	{
 		PrintMenu();

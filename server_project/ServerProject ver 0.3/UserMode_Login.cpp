@@ -1,11 +1,11 @@
 /**
-*@brief			UserMode: Login
+*@file			UserMode_Login.cpp
 *@details		Login UI, Using class `UserInfo` for get value data and compare inputed-value
-*@author		Joung Dong Sub
 *version		0.0.3
 */
 
 #include "UserMode_Login.h"
+
 
 void UserLogin::InitLogin()
 {
@@ -41,22 +41,18 @@ void UserLogin::InitLogin()
 	} while (login_success);
 }
 
-//user 구조체 값을 받아서 초기화 할것.
 UserLogin::UserLogin(UserInfo* newUser)
 {
 	user_login->m_account_IDPW.insert(make_pair(newUser->m_user_ID, newUser->m_user_PW));
-	user_login->m_account_IDpass.insert(make_pair(newUser->m_user_ID, newUser->m_user_ID_number));
 }
-
 
 const bool UserLogin::CheckID(string ID)
 {
-	UserLogin::m_account_IDPW.count(ID);
+	m_account_IDPW.count(ID);
 	return true;
 }
 
-
 const string UserLogin::ReturnPW_Key(string ID)
 {
-	return UserLogin::m_account_IDPW.find(ID)->second;
+	return m_account_IDPW.find(ID)->second;
 }

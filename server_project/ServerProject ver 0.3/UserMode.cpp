@@ -1,12 +1,13 @@
 /**
-*@brief			Init UserMode
-*@details		UI UserMode
+*file			UserMode.cpp
+*@details		UserMode UI 
 *@author		Joung Dong Sub
 *version		0.0.3
 */
 
 #include "UserMode.h"
 #include "ServerCapacity.h"
+
 
 void UserMode::init_UserMode()
 {
@@ -42,7 +43,7 @@ void UserMode::FileMenu()
 		case 2:
 			FileUpload();
 			break;
-		case 3:
+		case 3:	
 			FileDelete();
 			break;
 		default:
