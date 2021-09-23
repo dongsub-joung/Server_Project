@@ -2,20 +2,58 @@
 *@brief			AdminMode: 2. Accepte PreUser Infomation Done Join progress
 *@details		Transfor Data from struct `PreUser` to struct `User`
 *@author		Joung Dong Sub
-*@version		0.0.3
+*@version		0.0.4
 *@todo
-*		구현 능력이 떨어져서 ㅠㅠ...
-*		join에서 preuser 구조체를 동적할당한 것을 가져와서 userinfo도 동적할당해서 복사하고
-*		승인할 유저 목록 출력 후 id를 입력하면 승인되는 쪽으로 구현하고 싶었습니다.
+*		join.cpp > receive >  map<String, bool> un_auths	in "preuser" structure 
+								> user_name / default "false" 
+							  "userinfo"
 */
 
-
 #include "Admin_ApproveUser.h"
+#include "UserInfo.h"
 
-void Admin_ApproveUser::init_ApproveUser()
+void reciveUserDate()
 {
-	cout << "미승인 회원의 승인절차를 실행합니다." << endl;
-	MoveUserData(preuser_info);
-	cout << "승인된 유저 ID" << newUser->m_user_ID << endl;
+	//return  preuser::
 }
 
+void Admin_ApproveUser::showUpUserList(std::map<String, bool> un_auths)
+{
+	std::cout << "	ID	/	Auth	" << un_auths.size() << std::endl;
+	for(std::map<String, bool>::interator itr= un_auths.begin(); itr != un_auths.end(); itr++){
+		std::cout << itr->first << " / " << itr->second << '\n';
+	}
+}
+
+map Admin_ApproveUser::changeTrue(map<String, bool> un_auths, String user_name)
+{
+	bool search_value= un_auths.count(user_name);
+	if (search_value == false)
+	{
+		un_auths[user_name]= true;
+		return un_auths;
+	}
+}
+
+void throwTheChangedDate(map<String, bool> un_auths)
+{
+	return un_auths;
+}
+
+void Admin_ApproveUser::initApproveUser()
+{
+	std::map<bool, String> un_auths= reciveUserDate();
+
+	std::cout << "Operate the approve at The UnAuth User; \n";
+	std::cout << "Write the User Name you want to pass > \n" << std::endl;
+	std::cin >> user_name;
+	changeTrue(un_auths, user_name);
+	
+	std::cout << "Done it, Show up;" << '\n' << std::endl;
+	showUpUserList(un_auths);
+
+	std::cout << "-------Sending Data-------"<< '\n' << std::endl;
+	throwTheChangedDate(un_auths);
+
+	std::cout << " Completely Done :) "<< std::endl;
+}
