@@ -23,11 +23,10 @@ public:
 private:
 	bool m_password_control{ true };
 
-	bool CheckUserIdNumber(string user_id_number);	///User ID Number) Char[13]
-	bool CheckSpell(string password);				///Password) a-z,A-Z,0-9
-	bool CheckLength(string password);				///Password) char[n], n>8
-	bool CheckNumber(string password);				///Password) Do not use `User ID Number`
-	void CheckPassword(bool, bool, bool);			///Final Pass
-
-
+	bool CheckUserIdNumber(string user_id_number);	// User ID Number) Char[13]
+	bool CheckSpell(string password);				// Password) a-z,A-Z,0-9
+	bool CheckLength(string password);				// Password) char[n], n>8
+	bool CheckNumber(string password);				// Password) Block the `User ID Number`
+	void CheckPassword(bool, bool, bool);			// Final auth
+	void authConditions(int conditons);				// MSG code each cases
 };

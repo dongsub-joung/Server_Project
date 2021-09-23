@@ -17,21 +17,24 @@ void Join::InitJoin()
 
 	do
 	{
-		cout << "주민 번호를 입력해주세요." << endl;
+		cout << "Please, Enter the your's My Number >\n" << endl;
 		cin >> m_user_id_number;
 	} while (CheckUserIdNumber(m_user_id_number));
 
-	std::cout << "ID를 입력해주세요." << endl;
-	cin >> m_id;
-
 	do
 	{
-		cout << "Pass Word를 입력해주세요." << endl;
+		cout << "Please, Enter the your's ID >\n" << endl;
+		cin >> m_id;
+		int string_condition_alter= 1; authConditions(string_condition_alter);
+	} while (CheckSpell(m_id));
+	
+	do
+	{
+		cout << "$ Certificate Serial Number $\n" << endl;
 		cout << "------------------------------" << endl;
-		cout << "* 영어 대소문자 및 숫자만" << endl;
-		cout << "* 8자 이상" << endl;
-		cout << "* 주민번호 미포함" << endl;
+		int normal= 0; authConditions(normal);
 		cin >> m_password;
+
 		bool spell = CheckSpell(m_password);
 		bool length = CheckLength(m_password);
 		bool overlap_control = CheckNumber(m_password);
@@ -45,29 +48,58 @@ void Join::InitJoin()
 /**
 *@todo
 *		preuser_info->m_preuser_ID_number = m_user_id_number;
-*		vector<BYTE> hased 의 마지막 원소에 해쉬화한 주민번호를 저장
-*		능력부족으로 구현 불가
+*		vector<BYTE> hased: having the hashed My Number.
 */
-void Join::SavePreUser()
+// void Join::SavePreUser()
+// {
+// 	preuser_info->m_preuser_ID = m_id;
+// 	preuser_info->m_preuser_PW = m_password;
+
+// 	sha256_join.HashUserInfo();
+// }
+
+void Join::authConditions(int number)
 {
-	preuser_info->m_preuser_ID = m_id;
-	preuser_info->m_preuser_PW = m_password;
+	enum case{
+		normal= 	 0;
+		deny_spell=  1;
+		deny_length= 2;
+		deny_social= 3;
+	}
 
-	sha256_join.HashUserInfo();
+	switch (number)
+	{
+		case normal:
+			for (size_t i = 1; i <= 3; i++)
+			{
+				authConditions(i);
+			}
+			break;
+		case deny_spell:
+			cout << "a-z, A-Z, Numbers Only \n";
+			break;
+		case deny_length
+			cout << "Over 8 Characters\n";
+			break;
+		case deny_social
+			cout << "Warning Social Engineering like Pat name, Personal Number ETC\n" << endl;
+			break;
+		default:
+			cout << "ERR"; 
+			break;
+	}
+	
 }
-
 
 bool Join::CheckSpell(const string password)
 {
 	string pw = password;
 	regex spell("^[A-za-z0-9]*$");
-	if (regex_match(pw, spell) == pw.size())
-	{
-		return true;
-	}
+	if (regex_match(pw, spell) == pw.size()) return true;
 	else
 	{
-		cout << "대소문자 및 숫자 이외의 것을 입력하였습니다." << endl;
+		cout << "Deny the work. please, do again.\n" << endl;
+		int case01= 1; authConditions(case01)
 	}
 }
 
@@ -76,13 +108,10 @@ bool Join::CheckLength(const string password)
 {
 	string pw = password;
 	int pw_size = pw.size();
-	if (pw_size > 8)
-	{
-		return true;
-	}
+	if (pw_size > 8) return true;
 	else
 	{
-		cout << "8자 이상 입력하세요." << endl;
+		int case02= 2; authConditions(case02); authConditions(case02)
 	}
 }
 
@@ -91,27 +120,18 @@ bool Join::CheckNumber(const string password)
 {
 	string pw = password;
 	string id_num = m_user_id_number;
-	if (id_num != pw)
-	{
-		return true;
-	}
+	if (id_num != pw) return true;
 	else
 	{
-		cout << "주민번호와 일치하는 비밀번호입니다." << endl;
+		int case03= 3; authConditions(case03); authConditions(case03)
 	}
 }
 
 
 void Join::CheckPassword(const bool spell, const bool length, const bool overlap)
 {
-	if (spell && length && overlap)
-	{
-		this->m_password_control = false;
-	}
-	else
-	{
-		cout << "Password 조건에 일치하지 않습니다." << endl;
-	}
+	if (spell && length && overlap) this->m_password_control = false;
+	else authConditions(-1);
 }
 
 
@@ -119,12 +139,9 @@ bool Join::CheckUserIdNumber(const string m_user_id_number)
 {
 	int char_size = m_user_id_number.size();
 
-	if (char_size <= 13)
-	{
-		return false;
-	}
+	if (char_size <= 13) return false;
 	else
 	{
-		cout << "주민등록 번호는 13자리 입니다." << endl;
+		cout << "Fit in the 13 Characters \n" << endl;
 	}
 }
