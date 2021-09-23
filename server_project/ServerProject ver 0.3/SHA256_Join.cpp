@@ -15,16 +15,22 @@ void SHA256_Join::HashUserInfo()
 
 	//fp = fopen("SHA-256 Encrypted.txt", "\/");
 
-	cout << "평문: " << endl;
-	cin >> plain;
+	cout << "Plaining: \n"; cin >> plain;
 	plain_leng = strlen((char*)plain);
 
 	SHA256_Encrpyt(plain, plain_leng, encrypt);
 
-	cout << "암호화:" << endl;
+	cout << "Encrypting: \n" << endl;
 	for (int i = 0; i < 32; i++)
 	{
 		auto hash = encrypt[i];
-		hased.push_back(hash);
+		hashed.push_back(hash);
 	}
+
+	sendHashCode(hashed);
+}
+
+vector sendHashCode(vector<BYTE> hashed)
+{
+	return hashed;
 }
