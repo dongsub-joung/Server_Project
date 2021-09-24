@@ -17,21 +17,43 @@ UserInfo newUser;
 PreUser preUser;
 CapacityInfo server_capacity;
 
+bool AdminClass::antiSocial(String str)
+{
+	String[] strs= ["admin", "0123", "123", "qwer", "default"];
+
+	for (int i = 0; i < str.length(); i++) under_str= tolower(str[i],loc);
+	for (int i = 0; i < strs.length(); i++)
+	{
+		if (under_str != strs[i]) return true;
+		else return false;
+	}
+}
+
+bool AdminClass::deneidSimillerCode(String pre_set, String new_set)
+{
+	for (int i = 0, int j= 1 int z= 2; i < (int) pre_set.size() / 3; i++, j++, z++)
+	{
+		String pre_pivot= pre_set[i] + pre_set[j] + pre_set[z];
+		if (new_Set in pre_pivot) return false;
+		else continue; 
+	}
+	return true;
+}
+
 bool AdminClass::CheckingCode(string inputed)
 {
 	string default_code = admin.m_adminCode;
+	bool anti_social= false;
 
 	if (inputed.size()>4)
 	{
-		if (/* condition */)
-		{
-			return true;
-		}
+		if (antiSocial(inputed)) return true;
+		else return false;
 	}
-	else if (inputed == default_code) return false;
+	else if (deneidSimillerCode(default_code, inputed)) return false;
 	else
 	{
-		cout << "minimum length is 4 \n";
+		cout << "minimum length is 4 Or Weakness have \n";
 		return false;
 	}
 }
