@@ -19,41 +19,41 @@ CapacityInfo server_capacity;
 
 bool AdminClass::CheckingCode(string inputed)
 {
-	//구현하면 좋은 것) 4자리 넘었을 경우 오버플로우를 제안하는 기능
 	string default_code = admin.m_adminCode;
 
-	if (inputed == default_code)
+	if (inputed.size()>4)
 	{
-		return false;
+		if (/* condition */)
+		{
+			return true;
+		}
 	}
-	else if (inputed.size()>4)
-	{
-		cout << "코드는 4자리입니다." << endl;
-		return true;
-	}
+	else if (inputed == default_code) return false;
 	else
 	{
-		return true;
+		cout << "minimum length is 4 \n";
+		return false;
 	}
 }
 
 void AdminClass::ChangeCode()
 {
-	string new_code;
-
-	cout << "변경하실 코드를 입력하시오." << endl;
-	cin >> new_code;
-	cout << "코드를 변경합니다." << endl;
+	string new_code= "";
+	do
+	{
+		cout << "modifing THE CODE \n";
+		cin >> new_code;
+	} while (CheckingCode(new_code));
+	
 	string *code = &admin.m_adminCode;
 	code = &new_code;
-
-	cout << "변경 완료" << endl;
+	cout << "completely;" << endl;
 }
 
 void AdminClass::PrintUserInfo()
 {
 	vector<string> &users = g_users;
-	cout << "가입자 목록을 출력합니다." << endl;
+	cout << "Pring the Joiner's List; \n" << endl;
 
 	if (users.empty() != true)
 	{
@@ -64,7 +64,7 @@ void AdminClass::PrintUserInfo()
 	}
 	else
 	{
-		cout << "가입자가 없습니다." << endl;
+		cout << "Nothing Exsit \n" << endl;
 	}
 }
 
@@ -72,10 +72,10 @@ void AdminClass::AddCapacity()
 {
 	double *hole_capacity = &(server_capacity.m_storage_capacity);
 
-	std::cout << "전체 시스템 용량을 증설합니다." << std::endl;
-	std::cout << "현재 전체 용량: " << (*hole_capacity) << std::endl;
+	std::cout << "PROGRESSING: Upsizing the hole System capacity: \n";
+	std::cout << "The hole capacity" << (*hole_capacity) << "\n" << std::endl;
 	(*hole_capacity) += 51200;
-	std::cout << "증설 후 전체 용량: " << (*hole_capacity) << std::endl;
+	std::cout << "The After" << (*hole_capacity) << "\n" <<std::endl;
 }
 
 void AdminClass::ApproveUser()
@@ -91,7 +91,7 @@ void AdminClass::ApproveUser()
 	}
 	else
 	{
-		cout << "가입요청자가 없습니다." << endl;
+		cout << "Not Exsit The Entering User \n" << endl;
 	}
 
 	Admin_ApproveUser approve_user = Admin_ApproveUser();
