@@ -9,34 +9,36 @@
 
 void UserLogin::InitLogin()
 {
-	UserLogin user_login(UserInfo*);
-
-	string inputedID;
-	string inputedPW;
+	string inputedID, inputedPW;
 	bool login_success{ true };
 
-	cout << "---- 로그인 ----" << endl;
-	cout << "id :" << endl;
+	UserLogin user_login(UserInfo*);
+
+	cout << "---- CLI: LOGIN ---- \n";
+	cout << "ID :\t" << endl;
 	cin >> inputedID;
-	
 
 	do
 	{
 		if (CheckID(inputedID))
 		{
-			cout << "PW:" << endl;
+			cout << "PW:\t" << endl;
 			cin >> inputedPW;
 
 			string approvePW = ReturnPW_Key(inputedID);
 			if (inputedPW == approvePW)
 			{
-				cout << "로그인 완료" << endl;
+				cout << "Completly Done! \n" << endl;
 				login_success = false;
+			}
+			else
+			{
+				cout << "Incorrectly Access \n";
 			}
 		}
 		else
 		{
-			cout << "회원이 아니거나 관리자의 승인 전입니다." << endl;
+			cout << "Before the Approving or Not Joiner \n" << endl;
 		}
 	} while (login_success);
 }

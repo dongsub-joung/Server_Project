@@ -7,7 +7,7 @@ struct CapacityInfo
 	double m_storage_capacity;		//MB`
 	double m_used_capacity;
 	double m_avaible_capacity;
-	int m_count_sharding;			//증설 가능 횟수
+	int m_count_sharding;
 
 private:
 	enum default_capacity

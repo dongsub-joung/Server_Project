@@ -26,11 +26,11 @@ private:
 
 // ------ function ----------
 	void AdminLogin();
-	void CheckCode(string inputed);			//0. 코드 인증
-	void ChangeAdminCode();					//1.관리자 코드 변경
-	void ShowUserInfo();					//2. 유저 정보 가져와서 출력
-	void Sharding();						//3. 하드용량 추가
-	void WaitingUserInfo();					//4. 유저 승인
+	void CheckCode(string inputed);
+	void ChangeAdminCode();
+	void ShowUserInfo();
+	void Sharding();
+	void WaitingUserInfo();
 
 //------ etc function ----------
 	void PrintMenu();

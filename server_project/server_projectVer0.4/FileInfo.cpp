@@ -36,7 +36,7 @@ void FileInfo::ShowFileList()
 	}
 }
 
-///�ٿ�ε�) ���Ͽ��� Ȯ��
+// 
 void FileInfo::CheckDownloadFile(string title)
 {
 	int yes_or_no = this->m_fileID.count(title);

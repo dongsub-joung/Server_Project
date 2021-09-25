@@ -60,7 +60,7 @@ void AdminModeFunction::InitAdminMode()
 			break;
 
 		default:
-			cout << "항목에 없는 숫자입니다." << endl;
+			cout << "Out of Range;" << endl;
 			continue;
 		}
 	} while (true);
@@ -70,10 +70,9 @@ void AdminModeFunction::InitAdminMode()
 void AdminModeFunction::AdminLogin()
 {
 	string inputed;
-	std::cout << "4자리 Code를 입력해주세요.: " << endl;
-	std::cout << "Code: " << endl;
-	cin >> inputed;
-	CheckCode(inputed);
+	std::cout << "-- Inputing code progress -- \n";
+	std::cout << "Code:\t" << endl;
+	cin >> inputed; CheckCode(inputed);
 }
 
  void AdminModeFunction::CheckCode(string inputed)
@@ -104,11 +103,11 @@ void AdminModeFunction::AdminLogin()
 
 void AdminModeFunction::PrintMenu()
 {
-	cout << "1. 관리자 코드 변경" << endl;
-	cout << "2. 가입한 유저 정보 " << endl;
-	cout << "3. 하드용량 추가" << endl;
-	cout << "4. 대기중인 유저정보" << endl;
-	cout << "5. 파일 업로드 " << endl;
-	cout << "6. 파일 삭제 " << endl;
-	cout << "7. 파일 다운로드" << endl;
+	cout << "1. Modification of Admin Code \n";
+	cout << "2. Info of The User \n"
+	cout << "3. Sharding \n"
+	cout << "4. Info of The Approve yet \n"
+	cout << "5. Upload \n"
+	cout << "6. Delete \n"
+	cout << "7. Download \n" << endl;
 }
