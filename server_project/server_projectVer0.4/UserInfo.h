@@ -12,31 +12,42 @@
 
 vector <string> g_users;			///< current user list in server
 vector <string> g_pre_users;		///< user list remaining admin approve
-//vector <string> g_banned_users;	///< correct 5 over, abandoned user list
+vector <string> g_banned_users;		///< correct 5 over, abandoned user list
 
-static struct UserInfo
+static struct User
 {
-	string m_user_ID;
-	string m_user_PW;
-	string m_user_ID_number;
-	int m_authority_level[3]{ 1,0,0 };
+	string m_user_ID{" "}
+	string m_user_PW{" "}
+	string my_number{" "}
+	map<String, bool> mark_users;
 
-	UserInfo(){}
-	UserInfo(string id)
+	User(string id, string PW, string my_number)
 	{
-		g_users.push_back(id);
+		this.m_user_ID= id;
+		this.m_user_PW= PW;
+		this.my_number= my_number;
+
+		mark_users= new map<string, map>;
+		mark_users.set(id, false);
 	}
 };
 
-static struct PreUser
-{
-	string m_preuser_ID;
-	string m_preuser_PW;
-	string m_preuser_ID_number;
 
+static struct UserInfo : User
+{
+	int m_authority_level[3]{ 1,0,0 };
+};
+
+static struct PreUser : User
+{
 	PreUser(){}
 	PreUser(string id)
 	{
+		do
+		{
+			
+		} while (1);
+		
 		g_pre_users.push_back(id);
 	}
 };

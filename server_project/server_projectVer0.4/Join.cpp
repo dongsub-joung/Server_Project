@@ -9,6 +9,10 @@
 *version		0.0.3
 */
 
+//  User 1. Nomal 2. Denied 
+//  Join -> Approve -> Nomal User	-> 
+// 				N	-> cant access
+
 #include "Join.h"
 
 void Join::InitJoin()
