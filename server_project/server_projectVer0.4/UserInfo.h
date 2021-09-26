@@ -7,56 +7,64 @@
 */
 
 #pragma once
-
 #include "Default_Include.h"
-
-vector <string> g_users;			///< current user list in server
-vector <string> g_pre_users;		///< user list remaining admin approve
-vector <string> g_banned_users;		///< correct 5 over, abandoned user list
+#include <exception>
 
 static struct User
 {
-	string m_user_ID{" "}
-	string m_user_PW{" "}
-	string my_number{" "}
-	map<String, bool> mark_users;
+	string& m_user_ID{""}
+	string& m_user_PW{""}
+	string& my_number{""}
+	map<string, bool> mark_users;
 
 	User(string id, string PW, string my_number)
 	{
-		this.m_user_ID= id;
-		this.m_user_PW= PW;
-		this.my_number= my_number;
+		m_user_ID {id};
+		m_user_PW {PW};
+		my_number {my_number};
 
 		mark_users= new map<string, map>;
 		mark_users.set(id, false);
 	}
 };
 
-
 static struct UserInfo : User
 {
-	int m_authority_level[3]{ 1,0,0 };
-};
+	enum ACCESS{
+		READ= 0,
+		WRITE= 1,
+		MODIFY= 2
+	};
 
-static struct PreUser : User
-{
-	PreUser(){}
-	PreUser(string id)
+	const int ABLE= 1, DISABLE= 0;
+	int m_authority_level[3]{ 0,0,0 };
+
+	// Sample levle value "111" or "101"
+	UserInfo(string level)
 	{
-		do
+		try
 		{
-			
-		} while (1);
-		
-		g_pre_users.push_back(id);
+			for (int i = READ; i <= MODIFY; i++)
+			{
+				c= (char) level[i];
+				if (c != 33 || c != 34) throw();
+			}
+		}
+		catch(const std::exception& e) std::cerr << e.what() << '\n';
+
+		for (int i = 0; i < level.length(); i++)
+		{
+			if(level[i] == "1") m_authority_level[i]= ABLE;
+		}
 	}
 };
-  
-UserInfo* newUser;
-PreUser* preuser_info;
-void MoveUserData(PreUser* preuser)
+
+// User pre_user= new User("asdf","asdf","ASdf"); 
+// UserInfo user_info= new UserInfo("100");
+
+void MoveUserData(User* preuser_info, UserInfo* newUser)
 {
-	newUser->m_user_ID = preuser->m_preuser_ID;
-	newUser->m_user_PW = preuser->m_preuser_PW;
-	newUser->m_user_ID_number = preuser->m_preuser_ID_number;
+	preuser_info->m_user_ID = newUser->m_user_ID;
+	preuser_info->m_user_PW = newUser->m_user_PW;
+	preuser_info->m_user_ID_number = newUser->m_user_ID_number;
 }
