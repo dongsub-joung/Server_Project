@@ -10,7 +10,21 @@
 #include "Default_Include.h"
 #include <exception>
 
-static struct User
+class UserInfo
+{
+public:
+	UserInfo(){}
+	User getUser();
+	void moveUserData()User* preuser_info, UserInfo* newUser);
+private:
+	struct User;
+	struct UserInfo : User;
+	void setPreuser(string id, string PW, string my_number);
+	void moveUserData()User* preuser_info, UserInfo* newUser);
+}
+
+
+struct User
 {
 	string& m_user_ID{""}
 	string& m_user_PW{""}
@@ -28,7 +42,7 @@ static struct User
 	}
 };
 
-static struct UserInfo : User
+struct UserInfo : User
 {
 	enum ACCESS{
 		READ= 0,
@@ -59,10 +73,19 @@ static struct UserInfo : User
 	}
 };
 
-// User pre_user= new User("asdf","asdf","ASdf"); 
-// UserInfo user_info= new UserInfo("100");
+void UserInfo::setPreuser(string id, string PW, string my_number)
+{
+	User pre_user= new User(id, PW, my_number); 
+}
 
-void MoveUserData(User* preuser_info, UserInfo* newUser)
+UserInfo UserInfo::getUser()
+{
+	return Userinfo;
+}
+
+// @TODO
+// Deep copy struct value/
+void moveUserData(User* preuser_info, UserInfo* newUser)
 {
 	preuser_info->m_user_ID = newUser->m_user_ID;
 	preuser_info->m_user_PW = newUser->m_user_PW;
