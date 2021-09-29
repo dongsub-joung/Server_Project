@@ -6,21 +6,27 @@
 class UserInfoHandler
 {
 public:
-    User getPreuser();
-    UserInfo getApprovedUser();
+    UserInfo::User getPreuser();
+    UserInfo::approved_users getApprovedUser();
     void setPreuser(string id, string PW, string my_number);
+    void setApproveUser(string level);
     vector<string> getPreuserID(vector<UserInfo::User> users);
     vector<string> getPreuserMynumber(vector<UserInfo::User> users);
 
 private:
-    User     unapproved_users;
-    UserInfo approved_users;
-    void moveUserData()User* preuser_info, UserInfo* newUser);
+    UserInfo::User*           unapproved_users;
+    UserInfo::approvedUsers*  approved_users;
+    void moveUserData(User* preuser_info, UserInfo* newUser);
 }
 
 void UserInfoHandler::setPreuser(string id, string PW, string my_number)
 {
-	User pre_user= new User(id, PW, my_number);
+    unapproved_users= new User(id, PW, my_number);
+}
+
+void UserInfoHandler::setApproveUser(string level)
+{
+    approved_users= new approvedUsers(level);
 }
 
 vector<string> UserInfoHandler::getPreuserID(vector<UserInfo::User> users)
@@ -32,7 +38,6 @@ vector<string> UserInfoHandler::getPreuserID(vector<UserInfo::User> users)
     return ids;
 }
 
-
 vector<string> UserInfoHandler::getPreuserMynumber(vector<UserInfo::User> users)
 {
     std::vector<string> my_numbers;
@@ -40,18 +45,24 @@ vector<string> UserInfoHandler::getPreuserMynumber(vector<UserInfo::User> users)
     int max_size= users.size();
     for(int i=0; i<max_size; i++) my_numbers.push(users[i].my_number);
 
-    return ids;
+    return my_numbers;
 }
 
-UserInfo UserInfoHandler::getApprovedUser()
+unapproved_users UserInfoHandler::getPreuser()
 {
-	return Userinfo;
+	return unapproved_users;
+}
+
+approvedUsers UserInfoHandler::getApprovedUser()
+{
+	return approved_users;
 }
 
 // Deep copy struct value/
-void UserInfoHandler::moveUserData(User* preuser_info, UserInfo* newUser)
+void UserInfoHandler::moveUserData()
 {
-	preuser_info->m_user_ID = newUser->m_user_ID;
-	preuser_info->m_user_PW = newUser->m_user_PW;
-	preuser_info->m_user_ID_number = newUser->m_user_ID_number;
+    // approved_users= unapproved_users;
+    approved_users.m_user_ID= unapproved_users.m_user_ID;
+    approved_users.m_user_PW= unapproved_users.m_user_PW;
+    approved_users.m_user_ID_number= unapproved_users.m_user_ID_number;
 }
