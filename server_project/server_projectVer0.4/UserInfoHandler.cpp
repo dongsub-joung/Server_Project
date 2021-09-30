@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Default_Include.h"
-#include Userinfo
+#include "Userinfo.cpp"
 
 class UserInfoHandler
 {
@@ -50,7 +50,7 @@ vector<string> UserInfoHandler::getPreuserMynumber(vector<UserInfo::User> users)
 
 unapproved_users UserInfoHandler::getPreuser()
 {
-	return unapproved_users;
+    return unapproved_users;
 }
 
 approvedUsers UserInfoHandler::getApprovedUser()
@@ -58,9 +58,11 @@ approvedUsers UserInfoHandler::getApprovedUser()
 	return approved_users;
 }
 
-// Deep copy struct value/
-void UserInfoHandler::moveUserData()
+void UserInfoHandler::moveUserData(stirng id)
 {
+    // @TODO
+    // unapproved_users::mark_users.MODIFY(id, true);
+    
     // approved_users= unapproved_users;
     approved_users.m_user_ID= unapproved_users.m_user_ID;
     approved_users.m_user_PW= unapproved_users.m_user_PW;

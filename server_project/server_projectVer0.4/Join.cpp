@@ -17,31 +17,35 @@
 
 void Join::InitJoin()
 {
-	cout << "---- Join ----" << endl;
+	cout << "---- Join ----\n" << endl;
 
 	do
 	{
-		cout << "Please, Enter the your's My Number >\n" << endl;
+		cout << "Please, Enter the your's My Number >> ";
 		cin >> m_user_id_number;
 	} while (CheckUserIdNumber(m_user_id_number));
 
 	do
 	{
-		cout << "Please, Enter the your's ID >\n" << endl;
+		const int string_condition_alter= 1;
+
+		cout << "Please, Enter the your's ID >> " << endl;
 		cin >> m_id;
-		int string_condition_alter= 1; authConditions(string_condition_alter);
+		authConditions(string_condition_alter);
 	} while (CheckSpell(m_id));
 	
 	do
 	{
-		cout << "$ Certificate Serial Number $\n" << endl;
-		cout << "------------------------------" << endl;
-		int normal= 0; authConditions(normal);
+		const int normal= 0;
+
+		cout << "$ Certificate Serial Number $ \n";
+		cout << "------------------------------\n" << endl;
+		authConditions(normal);
 		cin >> m_password;
 
-		bool spell = CheckSpell(m_password);
-		bool length = CheckLength(m_password);
-		bool overlap_control = CheckNumber(m_password);
+		bool spell = ()=> { CheckSpell(m_password) : true ? false; }
+		bool length = ()=> { CheckLength(m_password) : true ? false; }
+		bool overlap_control = ()=> { CheckNumber(m_password) : true ? false; }
 
 		CheckPassword(spell, length, overlap_control);
 	} while (m_password_control);
@@ -103,7 +107,7 @@ bool Join::CheckSpell(const string password)
 	else
 	{
 		cout << "Deny the work. please, do again.\n" << endl;
-		int case01= 1; authConditions(case01);
+		const int case01= 1; authConditions(case01);
 	}
 }
 
@@ -115,7 +119,7 @@ bool Join::CheckLength(const string password)
 	if (pw_size > 8) return true;
 	else
 	{
-		int case02= 2; authConditions(case02);
+		const int case02= 2; authConditions(case02);
 	}
 }
 
@@ -127,7 +131,7 @@ bool Join::CheckNumber(const string password)
 	if (id_num != pw) return true;
 	else
 	{
-		int case03= 3; authConditions(case03);
+		const int case03= 3; authConditions(case03);
 	}
 }
 

@@ -4,8 +4,20 @@
 *version		0.0.3
 */
 
-#include "UserMode_Login.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
 
+#include "UserInfoHandler.cpp"
+
+Using namespace std;
+
+UserLogin::UserLogin()
+{
+	
+	// user_login->m_account_IDPW.insert(make_pair(newUser->m_user_ID, newUser->m_user_PW));
+}
 
 void UserLogin::InitLogin()
 {
@@ -41,11 +53,6 @@ void UserLogin::InitLogin()
 			cout << "Before the Approving or Not Joiner \n" << endl;
 		}
 	} while (login_success);
-}
-
-UserLogin::UserLogin(UserInfo* newUser)
-{
-	user_login->m_account_IDPW.insert(make_pair(newUser->m_user_ID, newUser->m_user_PW));
 }
 
 const bool UserLogin::CheckID(string ID)

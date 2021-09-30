@@ -5,7 +5,7 @@
 #pragma once
 
 #include "Default_include.h"
-#include "UserInfo.h"
+#include "UserInfo.cpp"
 
 class UserLogin
 {

@@ -1,24 +1,31 @@
 #pragma once
 
-#include "Default_Include.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <cstring>
+#include <regex>
+
 #include "UserInfo.h"
 #include "SHA256_Join.h"
+
+using namespace std;
 
 class Join
 {
 public:
-	Join() {};
-
-	void InitJoin();
-
 	string m_id;
 	string m_password;
 	string m_user_id_number;
 
 	PreUser preUser;
 	SHA256_Join sha256_join;
-
+	
+	Join() {};
 	void SavePreUser();
+	void InitJoin();
 
 private:
 	bool m_password_control{ true };
