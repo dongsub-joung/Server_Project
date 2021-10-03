@@ -25,3 +25,10 @@ Imitation Server Infra in cmd. (C++)
 + Doxygen
 + Coding
 + gmock
+
+---  
+
+# Development Daily  
+
+- 2021/10/04)  The fuckingest korean, the korea's env is tensive me on purly math data, is the end of my effort.
+
