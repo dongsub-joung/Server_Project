@@ -82,7 +82,8 @@ void UserInfoHandler::moveUserData(User unapproved_users, string id, string lvl)
     else { cout<< "UnJoined ID\n" << endl; return; }
   
     // approved_users= unapproved_users;
-    approved_users.m_user_ID= unapproved_users.m_user_ID;
-    approved_users.m_user_PW= unapproved_users.m_user_PW;
-    approved_users.m_user_ID_number= unapproved_users.m_user_ID_number;
+    // approved_users.m_user_ID= unapproved_users.m_user_ID;
+    // approved_users.m_user_PW= unapproved_users.m_user_PW;
+    // approved_users.m_user_ID_number= unapproved_users.m_user_ID_number;
+    (UserInfo::User) unapproved_users= (UserInfo::approvedUsers) approved_users;
 }

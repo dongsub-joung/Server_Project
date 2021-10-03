@@ -8,7 +8,7 @@
 *				- Show PreUser Infomation and Approve PreUser
 *				- (Common) File Functions(Read, Write, Delete)
 *@author		Joung Dong Sub
-*version		0.0.3
+*@version		0.0.4
 */
 
 #include "Admin_init.h"

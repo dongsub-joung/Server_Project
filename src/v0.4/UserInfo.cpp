@@ -1,5 +1,9 @@
-/*!
-*@file	UserInfo.cp
+/**
+*@brief  Declear User Data
+*@details
+*	Sample levle value "111" or "101"
+*@author Joung Dong Sub
+*@version		0.0.4
 *@todo
 *		new PreUser;
 *		-> new User= PreUser;
@@ -49,7 +53,7 @@ struct UserInfo::approvedUsers : User
 	const int ABLE= 1, DISABLE= 0;
 	int m_authority_level[3]{ 0,0,0 };
 
-	// Sample levle value "111" or "101"
+	
 	approvedUsers(string level)
 	{
 		try

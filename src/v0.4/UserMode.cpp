@@ -32,11 +32,9 @@ void UserMode::FileMenu()
 
 	int selected_service_Num{};
 	
-
 	do
 	{
 		cin >> selected_service_Num;
-		
 		switch (selected_service_Num)
 		{
 		case 1:

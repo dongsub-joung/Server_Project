@@ -1,17 +1,17 @@
 /**
-*@brief			Init Join
+*@brief		Join(2/2)
 *@details
 *			Join UI
 *			Filter PW
 *			Save User ID Number
 *			Encoding Password used SHA 256 
 *@author		Joung Dong Sub
-*version		0.0.3
+*@version		0.0.4
+*@todo
+*  User 1. Nomal 2. Denied 
+*  Join -> Approve -> Nomal User	-> 
+* 				N	-> cant access
 */
-
-//  User 1. Nomal 2. Denied 
-//  Join -> Approve -> Nomal User	-> 
-// 				N	-> cant access
 
 #include "Join.h"
 
@@ -28,7 +28,6 @@ void Join::InitJoin()
 	do
 	{
 		const int string_condition_alter= 1;
-
 		cout << "Please, Enter the your's ID >> " << endl;
 		cin >> m_id;
 		authConditions(string_condition_alter);
@@ -58,13 +57,15 @@ void Join::InitJoin()
 *		preuser_info->m_preuser_ID_number = m_user_id_number;
 *		vector<BYTE> hased: having the hashed My Number.
 */
-// void Join::SavePreUser()
-// {
-// 	preuser_info->m_preuser_ID = m_id;
-// 	preuser_info->m_preuser_PW = m_password;
+void Join::SavePreUser()
+{
+	preuser_info->m_preuser_ID = m_id;
+	preuser_info->m_preuser_PW = m_password;
 
-// 	sha256_join.HashUserInfo();
-// }
+	sha256_join.HashUserInfo();
+	
+	UserInfoHandler::setPreuser(string id, string PW, string my_number)
+}
 
 void Join::authConditions(int number)
 {
@@ -111,7 +112,6 @@ bool Join::CheckSpell(const string password)
 	}
 }
 
-
 bool Join::CheckLength(const string password)
 {
 	string pw = password;
@@ -122,7 +122,6 @@ bool Join::CheckLength(const string password)
 		const int case02= 2; authConditions(case02);
 	}
 }
-
 
 bool Join::CheckNumber(const string password)
 {
@@ -135,15 +134,13 @@ bool Join::CheckNumber(const string password)
 	}
 }
 
-
 void Join::CheckPassword(const bool spell, const bool length, const bool overlap)
 {
 	if (spell && length && overlap) this->m_password_control = false;
 	else authConditions(-1);
 }
 
-
-bool Join::CheckUserIdNumber(const string m_user_id_number)
+bool Join::CheckUserIdNumber(string m_user_id_number)
 {
 	int char_size = m_user_id_number.size();
 

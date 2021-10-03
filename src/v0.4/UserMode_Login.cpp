@@ -1,7 +1,11 @@
 /**
-*@file			UserMode_Login.cpp
+*@brief			UserMode_Login.cpp
 *@details		Login UI, Using class `UserInfo` for get value data and compare inputed-value
-*version		0.0.3
+*@version		0.0.4
+*@author		Joung Dong Sub
+*@todo  	Default User Date: test01 / test
+			1. Check once joined user: get vector mark_users<id,bool>
+			2. if exist date, check approved: UserInfohander::getApproveUserInfo();	
 */
 
 #pragma once
@@ -30,10 +34,6 @@ private:
 
 UserLogin::UserLogin()
 {
-	// Default User Date: test01 / test
-	// 1. Check once joined user: get vector mark_users<id,bool>
-	// 2. if exist date, check approved: UserInfohander::getApproveUserInfo();
-	
 	UserInfoHandler();
 	// user_login->m_account_IDPW.insert(make_pair(newUser->m_user_ID, newUser->m_user_PW));
 }
