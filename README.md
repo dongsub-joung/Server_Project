@@ -32,3 +32,7 @@ Imitation Server Infra in cmd. (C++)
 
 - 2021/10/04)  The fuckingest korean, the korea's env is tensive me on purly math data, is the end of my effort.
 
+## TODO  
+- scrching the twitter sentece of mine for "THE DAYS OF DEV" DOCUMENT"(Actually the risk of twitter's hackable exploit on cookies, olcal storage E.T.C  
+
+
