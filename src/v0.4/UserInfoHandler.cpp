@@ -1,3 +1,13 @@
+/**
+*@brief			Save User struct
+*                   - ADD INDEXING SYSTEM(0.0.4)
+*@details	    Searching index: Not hashed user index <id, pass>
+*               It needs to generate to token of auth for security and indexing.
+*               
+*@version		0.0.4
+*@author		Joung Dong Sub
+*/
+
 #pragma once
 
 #include "Userinfo.cpp"
@@ -12,29 +22,42 @@ class UserInfoHandler
 {
 public:
     UserInfoHandler(){};
-    UserInfo::User getPreuser();
-    UserInfo::approved_users getApprovedUser();
+
+    // About Searching index
+    void setUserIndex(map<string,bool>* indexs);
+    map<string, bool> getUsersIndex();
+
+    // About pre's
     void setPreuser(string id, string PW, string my_number);
-    void setApproveUser(string level);
+    UserInfo::User getPreuser();
     vector<string> getPreuserID(vector<UserInfo::User> users);
     vector<string> getPreuserMynumber(vector<UserInfo::User> users);
-    map<string, bool> getMarkusers();
     
+    // About approved's  
+    UserInfo::approved_users getApprovedUser();
+
 private:
     UserInfo::User           unapproved_users;
     UserInfo::approvedUsers  approved_users;
-    map<string, bool> g_mark_users;
-
-    void setMarkusers();
-    void moveUserData(User unapproved_users, string id, string lvl);
+    map<> m_user_index= new map<string, bool>;
+    
+    // Inner
+    UserInfo::approvedUsers moveUserData(User unapproved_users, string id, string lvl);
 }
 
-void UserInfoHandler::setMarkusers()
+// About Searching index
+void UserInfoHandler::setUserIndex(UserInfoHandler.user_index, string id)
 {
-    // Need Pre locate value at Join.cpp 
-    g_mark_users= unapproved_users.mark_users;
+    // Init Join.cpp, then received data.
+    user_index.set(id, false);
+}
+void UserInfoHandler::getUsersIndex()
+{
+    // @todo Need Pre locate value at Join.cpp
+    map<string, bool> copy= m_user_index; // or &
 }
 
+// About pre's
 void UserInfoHandler::setPreuser(string id, string PW, string my_number)
 {
     unapproved_users= new User(id, PW, my_number);
@@ -64,26 +87,24 @@ unapproved_users UserInfoHandler::getPreuser()
     return unapproved_users;
 }
 
+// About approved's 
 approvedUsers UserInfoHandler::getApprovedUser()
 {
 	return approved_users;
 }
 
-void UserInfoHandler::moveUserData(User unapproved_users, string id, string lvl)
+// Inner
+UserInfo::approvedUsers UserInfoHandler::moveUserData(User unapproved_users, string id, string lvl)
 {
     bool id_checker{false};
 
-    id_checker= unapproved_users.count(id) : true ? false;
+    id_checker= user_index.count(id) : true ? false;
     if(id_checker)
-    {	
-    	unapproved_users.mark_users[id]= true;
-    	approved_users= UserInfo::approveUsers approvedUsers(lvl);
+    {
+    	user_index[id]= true;
+        approved_users= new Userinfo::approvedUsers(lvl);
+    	(UserInfo::approvedUsers) approved_users= (UserInfo::User) unapproved_users;
+        return approved_users;
     }
     else { cout<< "UnJoined ID\n" << endl; return; }
-  
-    // approved_users= unapproved_users;
-    // approved_users.m_user_ID= unapproved_users.m_user_ID;
-    // approved_users.m_user_PW= unapproved_users.m_user_PW;
-    // approved_users.m_user_ID_number= unapproved_users.m_user_ID_number;
-    (UserInfo::User) unapproved_users= (UserInfo::approvedUsers) approved_users;
 }

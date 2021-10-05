@@ -10,9 +10,9 @@
 #pragma once
 
 #include UserInfoHandler.cpp
-#include iostream
-#include string
-#include vector
+#include <iostream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -23,7 +23,8 @@ public:
     static void setData(UserInfo users);
     static vector<struct> getData();
 private:
-    <>* USERDATA= new vector<UserInfo::approvedUsers>; 
+    static vector<>* USERDATA= new vector<UserInfo::approvedUsers>;
 }
+
 UserData::UserData(UserInfo::User* users) { USERDATA.set(&users); }
-static vector<struct> UserData::getData() { return USERDATA; }
+static vector<struct> UserData::getData() { return &USERDATA; }

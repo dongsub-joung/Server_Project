@@ -10,12 +10,10 @@ typedef unsigned int UINT;
 class SHA256_Join
 {
 public:
-	vector sendHashCode(vector<BYTE> hashed);
-
+	SHA256_Join(){};
+	vector<BYTE> sendHashCode(vector<BYTE> hashed);
 private:
 	vector<BYTE> hashed;
-
-	SHA256_Join() {}
 	void HashUserInfo();
 };
 

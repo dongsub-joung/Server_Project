@@ -21,24 +21,19 @@ public:
 private:
 	struct User;
 	struct UserInfo : User;
-}
-
+} 
 
 struct UserInfo::User
 {
 	string* m_user_ID{""}
 	string* m_user_PW{""}
 	string* my_number{""}
-	map<string, bool> mark_users;
 
 	User(string id, string PW, string my_number)
 	{
 		m_user_ID {id};
 		m_user_PW {PW};
 		my_number {my_number};
-
-		mark_users= new map<string, bool>;
-		mark_users.set(id, false);
 	}
 };
 
@@ -52,7 +47,6 @@ struct UserInfo::approvedUsers : User
 
 	const int ABLE= 1, DISABLE= 0;
 	int m_authority_level[3]{ 0,0,0 };
-
 	
 	approvedUsers(string level)
 	{
